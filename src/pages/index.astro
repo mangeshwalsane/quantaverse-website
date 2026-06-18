@@ -19,85 +19,76 @@ import '../styles/global.css';
 </head>
 <body>
 
-<!-- GRAIN OVERLAY -->
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ══════════════════════════════════════════
-     NAV
-══════════════════════════════════════════ -->
+<!-- ══════════════ NAV ══════════════ -->
 <nav id="nav" class="px-6 md:px-12 lg:px-20">
-  <div class="max-w-7xl mx-auto flex items-center justify-between h-20">
-    <!-- Logo -->
+  <div style="max-width:1280px;margin:0 auto;" class="flex items-center justify-between h-20">
     <a href="/" class="flex-shrink-0">
       <svg width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(0, 2)">
+        <g transform="translate(0,2)">
           <rect x="2" y="9" width="18" height="18" rx="1.2" stroke="#C9A96E" stroke-width="1.1" transform="rotate(45 11 18)" fill="none"/>
           <rect x="5.5" y="12.5" width="11" height="11" rx="0.8" stroke="#C9A96E" stroke-width="0.7" opacity="0.4" transform="rotate(45 11 18)" fill="none"/>
           <rect x="8" y="15" width="6" height="6" rx="0.4" fill="#C9A96E" opacity="0.85" transform="rotate(45 11 18)"/>
         </g>
-        <text x="35" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#F5EFE4">QUANTAVERSE</text>
-        <text x="35" y="34" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="300" letter-spacing="4.5" fill="#C9A96E">LABS  PVT  LTD</text>
+        <text x="35" y="19" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#F5EFE4">QUANTAVERSE</text>
+        <text x="35" y="34" font-family="'DM Sans',sans-serif" font-size="8.5" font-weight="300" letter-spacing="4.5" fill="#C9A96E">LABS  PVT  LTD</text>
       </svg>
     </a>
-    <!-- Nav Links -->
     <div class="hidden md:flex items-center gap-10">
-      <a href="#services" class="text-xs tracking-widest uppercase text-white/40 hover:text-[#C9A96E] transition-colors duration-300">Services</a>
-      <a href="#work" class="text-xs tracking-widest uppercase text-white/40 hover:text-[#C9A96E] transition-colors duration-300">Work</a>
-      <a href="#about" class="text-xs tracking-widest uppercase text-white/40 hover:text-[#C9A96E] transition-colors duration-300">About</a>
-      <a href="#contact" class="btn-primary text-xs py-3 px-7">Start a Project</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#work"     class="nav-link">Work</a>
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#contact"  class="btn-cta">Start a Project</a>
     </div>
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
-      <span class="w-6 h-px bg-[#F5EFE4] block transition-all duration-300"></span>
-      <span class="w-4 h-px bg-[#C9A96E] block transition-all duration-300"></span>
+    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+      <svg width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <line x1="0" y1="3"  x2="24" y2="3"  stroke="#F5EFE4" stroke-width="1.5"/>
+        <line x1="0" y1="10" x2="18" y2="10" stroke="#C9A96E" stroke-width="1.5"/>
+        <line x1="0" y1="17" x2="24" y2="17" stroke="#F5EFE4" stroke-width="1.5"/>
+      </svg>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 z-50 bg-[#1C1917] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-300">
-  <button id="mobile-close" class="absolute top-8 right-8 text-white/40 hover:text-white" aria-label="Close">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<div id="mobile-menu" class="mobile-menu-overlay">
+  <button id="mobile-close" class="mobile-close-btn" aria-label="Close">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
   </button>
-  <a href="#services" class="mobile-link font-serif text-5xl font-light text-[#F5EFE4] hover:text-[#C9A96E] transition-colors">Services</a>
-  <a href="#work" class="mobile-link font-serif text-5xl font-light text-[#F5EFE4] hover:text-[#C9A96E] transition-colors">Work</a>
-  <a href="#about" class="mobile-link font-serif text-5xl font-light text-[#F5EFE4] hover:text-[#C9A96E] transition-colors">About</a>
-  <a href="#contact" class="mobile-link font-serif text-5xl font-light text-[#F5EFE4] hover:text-[#C9A96E] transition-colors">Contact</a>
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#work"     class="mobile-nav-link">Work</a>
+  <a href="#about"    class="mobile-nav-link">About</a>
+  <a href="#contact"  class="mobile-nav-link">Contact</a>
 </div>
 
 
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
-  <!-- Three.js canvas -->
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero" class="hero-section">
   <canvas id="hero-canvas"></canvas>
 
-  <!-- Glows -->
-  <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-       style="background: radial-gradient(circle, rgba(201,169,110,0.06), transparent 70%); transform: translate(30%,-30%)"></div>
-  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-       style="background: radial-gradient(circle, rgba(196,113,74,0.05), transparent 70%); transform: translate(-30%,30%)"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto w-full pt-32 pb-24">
-    <div class="max-w-4xl">
-      <div class="eyebrow mb-8 reveal">
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="eyebrow reveal" data-delay="0">
         <div class="eyebrow-line"></div>
         <span>Digital Infrastructure Studio</span>
       </div>
 
-      <h1 class="font-serif text-[clamp(48px,8vw,96px)] font-light leading-[1.02] text-[#F5EFE4] mb-8 reveal" style="transition-delay:0.1s">
+      <h1 class="hero-headline reveal" data-delay="0.12">
         We design, build,<br/>
-        and <em style="font-style:italic;color:#C9A96E">automate</em><br/>
+        and <em>automate</em><br/>
         digital businesses.
       </h1>
 
-      <p class="text-sm md:text-base font-light text-white/45 leading-relaxed max-w-xl mb-14 reveal" style="transition-delay:0.2s">
+      <p class="hero-sub reveal" data-delay="0.24">
         From fitness marketplaces and mobile apps to booking engines, SaaS platforms, and AI-powered workflows — we create software that removes manual operations and scales efficiently.
       </p>
 
-      <div class="flex flex-wrap gap-4 reveal" style="transition-delay:0.3s">
+      <div class="hero-ctas reveal" data-delay="0.36">
         <a href="#contact" class="btn-primary">
           Start a Project
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -106,63 +97,51 @@ import '../styles/global.css';
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 reveal" style="transition-delay:0.5s">
-      <div class="w-px h-12 overflow-hidden" style="background:rgba(245,239,228,0.1)">
-        <div id="scroll-line" class="w-full bg-[#C9A96E]" style="height:50%;animation:scrollDrop 1.8s ease-in-out infinite"></div>
-      </div>
-      <span class="text-[10px] tracking-[0.4em] uppercase text-white/25">Scroll</span>
+    <div class="scroll-indicator reveal" data-delay="0.5">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      <span class="scroll-label">Scroll</span>
     </div>
   </div>
 
-  <!-- Stats bar at bottom -->
-  <div class="relative z-10 border-t border-white/5 px-6 md:px-12 lg:px-20">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
-      <div class="py-8 pr-8 border-r border-white/5 reveal">
-        <p class="font-serif text-4xl font-light text-[#C9A96E] mb-1" data-count="15">15</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Days to Live</p>
-      </div>
-      <div class="py-8 px-8 border-r border-white/5 reveal" style="transition-delay:0.1s">
-        <p class="font-serif text-4xl font-light text-[#C9A96E] mb-1" data-count="3">3</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Products Shipped</p>
-      </div>
-      <div class="py-8 px-8 border-r border-white/5 reveal" style="transition-delay:0.2s">
-        <p class="font-serif text-4xl font-light text-[#C9A96E] mb-1">100%</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Code Ownership</p>
-      </div>
-      <div class="py-8 pl-8 reveal" style="transition-delay:0.3s">
-        <p class="font-serif text-4xl font-light text-[#C9A96E] mb-1">₹0</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Platform Lock-in</p>
-      </div>
+  <div class="hero-stats-bar">
+    <div class="stat-item reveal" data-delay="0">
+      <p class="stat-num" data-counter="15" data-suffix=" days">15</p>
+      <p class="stat-label">Days to Live</p>
+    </div>
+    <div class="stat-item reveal" data-delay="0.1">
+      <p class="stat-num" data-counter="3" data-suffix="+">3</p>
+      <p class="stat-label">Products Shipped</p>
+    </div>
+    <div class="stat-item reveal" data-delay="0.2">
+      <p class="stat-num">100%</p>
+      <p class="stat-label">Code Ownership</p>
+    </div>
+    <div class="stat-item reveal" data-delay="0.3">
+      <p class="stat-num">₹0</p>
+      <p class="stat-label">Platform Lock-in</p>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     SERVICES
-══════════════════════════════════════════ -->
-<section id="services" class="section py-32 px-6 md:px-12 lg:px-20">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+<!-- ══════════════ SERVICES ══════════════ -->
+<section id="services" class="section-wrap">
+  <div class="container">
+    <div class="section-header">
       <div>
-        <div class="eyebrow mb-6 reveal"><div class="eyebrow-line"></div><span>What We Do</span></div>
-        <h2 class="font-serif text-[clamp(36px,5vw,64px)] font-light text-[#F5EFE4] leading-tight reveal" style="transition-delay:0.1s">
-          Full-spectrum digital<br/>
-          <em style="font-style:italic;color:#C9A96E">infrastructure</em>
+        <div class="eyebrow reveal" data-delay="0"><div class="eyebrow-line"></div><span>What We Do</span></div>
+        <h2 class="section-title reveal" data-delay="0.1">
+          Full-spectrum digital<br/><em>infrastructure</em>
         </h2>
       </div>
-      <p class="text-sm text-white/40 leading-relaxed max-w-sm reveal" style="transition-delay:0.2s">
+      <p class="section-sub reveal" data-delay="0.2">
         We don't hand you a template. Every product is engineered from scratch — built to work autonomously so you can focus on running your business.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-
-      <!-- Card 1 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+    <div class="services-grid">
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <rect x="3" y="2" width="14" height="16" rx="1.5" stroke="#C9A96E" stroke-width="1.2"/>
             <rect x="6" y="6" width="8" height="1" rx="0.5" fill="#C9A96E" opacity="0.6"/>
@@ -170,21 +149,16 @@ import '../styles/global.css';
             <circle cx="10" cy="13.5" r="1.5" stroke="#C9A96E" stroke-width="0.9"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">01</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">Mobile Apps</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          iOS and Android apps built with Flutter — one codebase, two stores. From consumer marketplaces to B2B tools, we ship production-grade apps with real backend integrations.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Flutter</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">iOS</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Android</span>
+        <p class="service-num">01</p>
+        <h3 class="service-title">Mobile Apps</h3>
+        <p class="service-desc">iOS and Android apps built with Flutter — one codebase, two stores. From consumer marketplaces to B2B tools, we ship production-grade apps with real backend integrations.</p>
+        <div class="tag-row">
+          <span class="tag">Flutter</span><span class="tag">iOS</span><span class="tag">Android</span>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal" style="transition-delay:0.05s">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+      <div class="service-card reveal" data-delay="0.05">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <rect x="2" y="2" width="16" height="16" rx="1.5" stroke="#C9A96E" stroke-width="1.2"/>
             <path d="M2 7H18" stroke="#C9A96E" stroke-width="0.8" opacity="0.4"/>
@@ -193,62 +167,46 @@ import '../styles/global.css';
             <path d="M6 11L8.5 13.5L14 9" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">02</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">Booking & Payment Platforms</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          End-to-end booking systems with real-time availability, Razorpay/Stripe payments, automated confirmations, and calendar sync. No manual follow-ups.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Razorpay</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Calendar</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Webhooks</span>
+        <p class="service-num">02</p>
+        <h3 class="service-title">Booking & Payment Platforms</h3>
+        <p class="service-desc">End-to-end booking systems with real-time availability, Razorpay/Stripe payments, automated confirmations, and calendar sync. No manual follow-ups.</p>
+        <div class="tag-row">
+          <span class="tag">Razorpay</span><span class="tag">Calendar</span><span class="tag">Webhooks</span>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal" style="transition-delay:0.1s">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+      <div class="service-card reveal" data-delay="0.1">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <circle cx="10" cy="10" r="8" stroke="#C9A96E" stroke-width="1.2"/>
-            <path d="M10 6V10L13 12" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="10" cy="10" r="1.5" fill="#C9A96E" opacity="0.7"/>
+            <circle cx="10" cy="10" r="7.5" stroke="#C9A96E" stroke-width="1.2"/>
+            <path d="M10 6V10.5L13 12" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">03</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">SaaS Platforms</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          Multi-tenant SaaS products with subscription billing, role-based access, admin dashboards, and analytics. Built to scale from 10 to 10,000 users without re-architecting.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Spring Boot</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">PostgreSQL</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">AWS</span>
+        <p class="service-num">03</p>
+        <h3 class="service-title">SaaS Platforms</h3>
+        <p class="service-desc">Multi-tenant SaaS products with subscription billing, role-based access, admin dashboards, and analytics. Built to scale from 10 to 10,000 users without re-architecting.</p>
+        <div class="tag-row">
+          <span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span>
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal" style="transition-delay:0.15s">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+      <div class="service-card reveal" data-delay="0.15">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 14L8 9L11 12L14 7L16 10" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="2" y="2" width="16" height="16" rx="1.5" stroke="#C9A96E" stroke-width="1.2" opacity="0.4"/>
+            <path d="M3 14L7 9L10.5 12L14 7L17 10" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="2" width="16" height="16" rx="1.5" stroke="#C9A96E" stroke-width="1" opacity="0.3"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">04</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">AI Tools & Automation</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          Intelligent workflows powered by Claude, GPT, and custom ML pipelines. Automate customer support, content generation, document processing, and operational decisions.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Claude API</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Automation</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Workflows</span>
+        <p class="service-num">04</p>
+        <h3 class="service-title">AI Tools & Automation</h3>
+        <p class="service-desc">Intelligent workflows powered by Claude, GPT, and custom ML pipelines. Automate customer support, content generation, document processing, and operational decisions.</p>
+        <div class="tag-row">
+          <span class="tag">Claude API</span><span class="tag">Automation</span><span class="tag">Workflows</span>
         </div>
       </div>
 
-      <!-- Card 5 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal" style="transition-delay:0.2s">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+      <div class="service-card reveal" data-delay="0.2">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <rect x="2" y="5" width="16" height="11" rx="1.5" stroke="#C9A96E" stroke-width="1.2"/>
             <path d="M2 8H18" stroke="#C9A96E" stroke-width="0.8" opacity="0.4"/>
@@ -258,504 +216,346 @@ import '../styles/global.css';
             <rect x="5" y="13.5" width="3" height="1" rx="0.5" fill="#C9A96E" opacity="0.3"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">05</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">Business Websites</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          Fast, mobile-first business websites with WhatsApp booking, Google Maps integration, and near-zero operating costs. Live in 12 days. You own everything.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Astro</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Netlify</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">WhatsApp</span>
+        <p class="service-num">05</p>
+        <h3 class="service-title">Business Websites</h3>
+        <p class="service-desc">Fast, mobile-first business websites with WhatsApp booking, Google Maps integration, and near-zero operating costs. Live in 12 days. You own everything.</p>
+        <div class="tag-row">
+          <span class="tag">Astro</span><span class="tag">Netlify</span><span class="tag">WhatsApp</span>
         </div>
       </div>
 
-      <!-- Card 6 -->
-      <div class="service-card bg-[#1C1917] p-10 reveal" style="transition-delay:0.25s">
-        <div class="mb-6 w-10 h-10 border border-[rgba(201,169,110,0.25)] flex items-center justify-center">
+      <div class="service-card reveal" data-delay="0.25">
+        <div class="service-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M7 4L4 10L7 16" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M13 4L16 10L13 16" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M7 4L4 10L7 16" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M13 4L16 10L13 16" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/>
             <path d="M9.5 3L10.5 17" stroke="#C9A96E" stroke-width="0.8" opacity="0.4" stroke-linecap="round"/>
           </svg>
         </div>
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-3">06</p>
-        <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-4">Custom Software</h3>
-        <p class="text-sm text-white/40 leading-relaxed">
-          Bespoke backend systems, REST APIs, admin panels, and data pipelines tailored to your exact process. If your business has a workflow, we can automate it.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Java</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Node.js</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">APIs</span>
+        <p class="service-num">06</p>
+        <h3 class="service-title">Custom Software</h3>
+        <p class="service-desc">Bespoke backend systems, REST APIs, admin panels, and data pipelines tailored to your exact process. If your business has a workflow, we can automate it.</p>
+        <div class="tag-row">
+          <span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">APIs</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     HOW WE WORK
-══════════════════════════════════════════ -->
-<section id="process" class="section py-32 px-6 md:px-12 lg:px-20 border-t border-white/5">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-      <!-- Left -->
-      <div>
-        <div class="eyebrow mb-6 reveal"><div class="eyebrow-line"></div><span>How We Work</span></div>
-        <h2 class="font-serif text-[clamp(36px,4vw,56px)] font-light text-[#F5EFE4] leading-tight mb-8 reveal" style="transition-delay:0.1s">
-          From brief to<br/>
-          <em style="font-style:italic;color:#C9A96E">live product</em><br/>
-          in 15 days.
+<!-- ══════════════ HOW WE WORK ══════════════ -->
+<section id="process" class="section-wrap section-border">
+  <div class="container">
+    <div class="process-grid">
+      <div class="process-left">
+        <div class="eyebrow reveal" data-delay="0"><div class="eyebrow-line"></div><span>How We Work</span></div>
+        <h2 class="section-title reveal" data-delay="0.1">
+          From brief to<br/><em>live product</em><br/>in 15 days.
         </h2>
-        <p class="text-sm text-white/40 leading-relaxed mb-12 reveal" style="transition-delay:0.2s">
+        <p class="body-text reveal" data-delay="0.2">
           No discovery phases that stretch into months. No surprise billing. We move fast because we've built systems like yours before.
         </p>
-        <a href="#contact" class="btn-primary reveal" style="transition-delay:0.3s">
+        <a href="#contact" class="btn-primary reveal" data-delay="0.3">
           Let's Talk
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
         </a>
       </div>
 
-      <!-- Right: Process Steps -->
-      <div class="relative pl-12">
-        <div class="process-line absolute left-5 top-6 bottom-6 w-px"
-             style="background:linear-gradient(to bottom, rgba(201,169,110,0.3), rgba(201,169,110,0.05))"></div>
+      <div class="process-steps">
+        <div class="process-vline"></div>
 
-        <div class="space-y-12">
-          <div class="relative reveal">
-            <div class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-[#2A2320] border border-[rgba(201,169,110,0.3)] flex items-center justify-center z-10">
-              <span class="font-sans text-xs font-500 text-[#C9A96E]">01</span>
-            </div>
-            <p class="text-[10px] tracking-widest uppercase text-[#C4714A] mb-2">Days 1–3</p>
-            <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-3">Discover & Design</h3>
-            <p class="text-sm text-white/40 leading-relaxed">We map your full workflow, decide the right stack, and finalize UI direction. You sign off on wireframes before a single line of code is written.</p>
+        <div class="process-step reveal" data-delay="0">
+          <div class="step-dot"><span>01</span></div>
+          <div class="step-body">
+            <p class="step-phase">Days 1–3</p>
+            <h3 class="step-title">Discover & Design</h3>
+            <p class="step-desc">We map your full workflow, decide the right stack, and finalise UI direction. You sign off on wireframes before a single line of code is written.</p>
           </div>
+        </div>
 
-          <div class="relative reveal" style="transition-delay:0.1s">
-            <div class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-[#2A2320] border border-[rgba(201,169,110,0.3)] flex items-center justify-center z-10">
-              <span class="font-sans text-xs font-500 text-[#C9A96E]">02</span>
-            </div>
-            <p class="text-[10px] tracking-widest uppercase text-[#C4714A] mb-2">Days 4–12</p>
-            <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-3">Build & Integrate</h3>
-            <p class="text-sm text-white/40 leading-relaxed">Full-stack development: frontend, backend, payments, automations, email flows. Daily progress updates. You watch it being built.</p>
+        <div class="process-step reveal" data-delay="0.1">
+          <div class="step-dot"><span>02</span></div>
+          <div class="step-body">
+            <p class="step-phase">Days 4–12</p>
+            <h3 class="step-title">Build & Integrate</h3>
+            <p class="step-desc">Full-stack development: frontend, backend, payments, automations, email flows. Daily progress updates. You watch it being built.</p>
           </div>
+        </div>
 
-          <div class="relative reveal" style="transition-delay:0.2s">
-            <div class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-[#2A2320] border border-[rgba(201,169,110,0.3)] flex items-center justify-center z-10">
-              <span class="font-sans text-xs font-500 text-[#C9A96E]">03</span>
-            </div>
-            <p class="text-[10px] tracking-widest uppercase text-[#C4714A] mb-2">Day 13–15</p>
-            <h3 class="font-serif text-2xl font-light text-[#F5EFE4] mb-3">Deploy & Hand Off</h3>
-            <p class="text-sm text-white/40 leading-relaxed">We deploy to your domain, configure your DNS, and hand over full source code and credentials. You own everything — no lock-in, no monthly fee.</p>
+        <div class="process-step reveal" data-delay="0.2">
+          <div class="step-dot"><span>03</span></div>
+          <div class="step-body">
+            <p class="step-phase">Days 13–15</p>
+            <h3 class="step-title">Deploy & Hand Off</h3>
+            <p class="step-desc">We deploy to your domain, configure DNS, and hand over full source code and credentials. You own everything — no lock-in, no monthly fee.</p>
           </div>
+        </div>
 
-          <div class="relative reveal" style="transition-delay:0.3s">
-            <div class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-[#2A2320] border border-[rgba(201,169,110,0.15)] flex items-center justify-center z-10">
-              <span class="font-sans text-xs font-500 text-[#C9A96E] opacity-50">∞</span>
-            </div>
-            <p class="text-[10px] tracking-widest uppercase text-[#C4714A] mb-2">Post-Launch</p>
-            <h3 class="font-serif text-2xl font-light text-[#F5EFE4]/50 mb-3">Runs Autonomously</h3>
-            <p class="text-sm text-white/25 leading-relaxed">Your platform operates 24/7 without you touching it. Build once. Automate forever.</p>
+        <div class="process-step reveal" data-delay="0.3" style="opacity:0.5">
+          <div class="step-dot step-dot-dim"><span>∞</span></div>
+          <div class="step-body">
+            <p class="step-phase">Post-Launch</p>
+            <h3 class="step-title" style="color:rgba(245,239,228,0.4)">Runs Autonomously</h3>
+            <p class="step-desc" style="color:rgba(245,239,228,0.2)">Your platform operates 24/7 without you touching it. Build once. Automate forever.</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     STATS & CHARTS
-══════════════════════════════════════════ -->
-<section id="stats" class="section py-32 px-6 md:px-12 lg:px-20 border-t border-white/5 overflow-hidden">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="text-center mb-24">
-      <div class="eyebrow justify-center mb-6 reveal"><div class="eyebrow-line"></div><span>By the Numbers</span><div class="eyebrow-line"></div></div>
-      <h2 class="font-serif text-[clamp(32px,4vw,56px)] font-light text-[#F5EFE4] reveal" style="transition-delay:0.1s">
-        Built for <em style="font-style:italic;color:#C9A96E">efficiency</em>
-      </h2>
+<!-- ══════════════ STATS ══════════════ -->
+<section id="stats" class="section-wrap section-border">
+  <div class="container">
+    <div class="text-center mb-20">
+      <div class="eyebrow eyebrow-center reveal" data-delay="0">
+        <div class="eyebrow-line"></div><span>By the Numbers</span><div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-title reveal" data-delay="0.1">Built for <em>efficiency</em></h2>
     </div>
 
-    <!-- Big stat counters -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 mb-24">
-      <div class="bg-[#1C1917] p-10 text-center reveal">
-        <p class="font-serif text-[clamp(48px,6vw,80px)] font-light text-[#C9A96E] leading-none mb-3" data-counter="15" data-suffix=" days">15</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Average time to live</p>
+    <div class="stats-counters reveal" data-delay="0">
+      <div class="counter-item">
+        <p class="counter-num" data-counter="15" data-suffix=" days">15 days</p>
+        <p class="counter-label">Average delivery</p>
       </div>
-      <div class="bg-[#1C1917] p-10 text-center reveal" style="transition-delay:0.1s">
-        <p class="font-serif text-[clamp(48px,6vw,80px)] font-light text-[#C9A96E] leading-none mb-3" data-counter="100" data-suffix="%">100</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Code ownership transferred</p>
+      <div class="counter-item">
+        <p class="counter-num" data-counter="100" data-suffix="%">100%</p>
+        <p class="counter-label">Code ownership transferred</p>
       </div>
-      <div class="bg-[#1C1917] p-10 text-center reveal" style="transition-delay:0.2s">
-        <p class="font-serif text-[clamp(48px,6vw,80px)] font-light text-[#C9A96E] leading-none mb-3" data-counter="3" data-suffix="+">3</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Products in production</p>
+      <div class="counter-item">
+        <p class="counter-num" data-counter="3" data-suffix="+">3+</p>
+        <p class="counter-label">Products in production</p>
       </div>
-      <div class="bg-[#1C1917] p-10 text-center reveal" style="transition-delay:0.3s">
-        <p class="font-serif text-[clamp(48px,6vw,80px)] font-light text-[#C9A96E] leading-none mb-3" data-counter="6" data-suffix="">6</p>
-        <p class="text-[10px] tracking-widest uppercase text-white/35">Service verticals</p>
+      <div class="counter-item">
+        <p class="counter-num" data-counter="6" data-suffix="">6</p>
+        <p class="counter-label">Service verticals</p>
       </div>
     </div>
 
-    <!-- Charts row -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Donut chart: tech stack -->
-      <div class="bg-[#2A2320] border border-white/5 p-8 reveal">
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-2">Technology Split</p>
-        <p class="font-serif text-xl font-light text-[#F5EFE4] mb-8">How we build</p>
-        <div class="flex items-center justify-center mb-6">
-          <canvas id="chart-tech" width="200" height="200"></canvas>
+    <div class="charts-grid">
+      <div class="chart-card reveal" data-delay="0">
+        <p class="chart-eyebrow">Technology Split</p>
+        <p class="chart-title">How we build</p>
+        <div class="chart-donut-wrap">
+          <canvas id="chart-tech" width="180" height="180"></canvas>
         </div>
-        <div class="space-y-2">
-          <div class="flex items-center justify-between text-xs text-white/40">
-            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full inline-block" style="background:#C9A96E"></span>Mobile (Flutter)</span><span>30%</span>
-          </div>
-          <div class="flex items-center justify-between text-xs text-white/40">
-            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full inline-block" style="background:#C4714A"></span>Backend APIs</span><span>25%</span>
-          </div>
-          <div class="flex items-center justify-between text-xs text-white/40">
-            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full inline-block" style="background:#8C7B6B"></span>Web Platforms</span><span>25%</span>
-          </div>
-          <div class="flex items-center justify-between text-xs text-white/40">
-            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full inline-block" style="background:#4A6741"></span>AI & Automation</span><span>20%</span>
-          </div>
+        <div class="chart-legend">
+          <div class="legend-row"><span class="legend-dot" style="background:#C9A96E"></span><span>Mobile (Flutter)</span><span class="ml-auto">30%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#C4714A"></span><span>Backend APIs</span><span class="ml-auto">25%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#8C7B6B"></span><span>Web Platforms</span><span class="ml-auto">25%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:#4A6741"></span><span>AI & Automation</span><span class="ml-auto">20%</span></div>
         </div>
       </div>
 
-      <!-- Bar chart: delivery speed -->
-      <div class="bg-[#2A2320] border border-white/5 p-8 reveal" style="transition-delay:0.1s">
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-2">Delivery Speed</p>
-        <p class="font-serif text-xl font-light text-[#F5EFE4] mb-8">Us vs. industry average</p>
-        <canvas id="chart-speed" width="300" height="200"></canvas>
+      <div class="chart-card reveal" data-delay="0.1">
+        <p class="chart-eyebrow">Delivery Speed</p>
+        <p class="chart-title">Us vs. industry average</p>
+        <canvas id="chart-speed" width="300" height="220"></canvas>
       </div>
 
-      <!-- Radial rings: capabilities -->
-      <div class="bg-[#2A2320] border border-white/5 p-8 reveal" style="transition-delay:0.2s">
-        <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] mb-2">Capability Depth</p>
-        <p class="font-serif text-xl font-light text-[#F5EFE4] mb-6">Core strengths</p>
-        <div class="space-y-5" id="capability-bars">
-          <div class="capability-item" data-pct="95">
-            <div class="flex justify-between text-xs text-white/40 mb-2"><span>Full-Stack Engineering</span><span>95%</span></div>
-            <div class="h-px bg-white/8 relative"><div class="h-px bg-[#C9A96E] capability-bar" style="width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1)"></div></div>
-          </div>
-          <div class="capability-item" data-pct="90">
-            <div class="flex justify-between text-xs text-white/40 mb-2"><span>Payment Integration</span><span>90%</span></div>
-            <div class="h-px bg-white/8 relative"><div class="h-px bg-[#C9A96E] capability-bar" style="width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1) 0.1s"></div></div>
-          </div>
-          <div class="capability-item" data-pct="88">
-            <div class="flex justify-between text-xs text-white/40 mb-2"><span>Cloud Infrastructure</span><span>88%</span></div>
-            <div class="h-px bg-white/8 relative"><div class="h-px bg-[#C9A96E] capability-bar" style="width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1) 0.2s"></div></div>
-          </div>
-          <div class="capability-item" data-pct="82">
-            <div class="flex justify-between text-xs text-white/40 mb-2"><span>AI & Automation</span><span>82%</span></div>
-            <div class="h-px bg-white/8 relative"><div class="h-px bg-[#C9A96E] capability-bar" style="width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1) 0.3s"></div></div>
-          </div>
-          <div class="capability-item" data-pct="85">
-            <div class="flex justify-between text-xs text-white/40 mb-2"><span>UI/UX Design</span><span>85%</span></div>
-            <div class="h-px bg-white/8 relative"><div class="h-px bg-[#C9A96E] capability-bar" style="width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1) 0.4s"></div></div>
-          </div>
+      <div class="chart-card reveal" data-delay="0.2">
+        <p class="chart-eyebrow">Capability Depth</p>
+        <p class="chart-title">Core strengths</p>
+        <div class="cap-bars">
+          <div class="cap-row" data-pct="95"><div class="cap-labels"><span>Full-Stack Engineering</span><span>95%</span></div><div class="cap-track"><div class="cap-fill" data-w="95"></div></div></div>
+          <div class="cap-row" data-pct="90"><div class="cap-labels"><span>Payment Integration</span><span>90%</span></div><div class="cap-track"><div class="cap-fill" data-w="90"></div></div></div>
+          <div class="cap-row" data-pct="88"><div class="cap-labels"><span>Cloud Infrastructure</span><span>88%</span></div><div class="cap-track"><div class="cap-fill" data-w="88"></div></div></div>
+          <div class="cap-row" data-pct="82"><div class="cap-labels"><span>AI & Automation</span><span>82%</span></div><div class="cap-track"><div class="cap-fill" data-w="82"></div></div></div>
+          <div class="cap-row" data-pct="85"><div class="cap-labels"><span>UI/UX Design</span><span>85%</span></div><div class="cap-track"><div class="cap-fill" data-w="85"></div></div></div>
         </div>
-
-        <!-- Radar-style ring chart -->
-        <div class="mt-8 flex justify-center">
-          <svg width="160" height="160" viewBox="0 0 160 160" id="radar-chart">
-            <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(245,239,228,0.04)" stroke-width="1"/>
-            <circle cx="80" cy="80" r="52" fill="none" stroke="rgba(245,239,228,0.04)" stroke-width="1"/>
-            <circle cx="80" cy="80" r="35" fill="none" stroke="rgba(245,239,228,0.04)" stroke-width="1"/>
-            <circle cx="80" cy="80" r="18" fill="none" stroke="rgba(245,239,228,0.04)" stroke-width="1"/>
-            <!-- Axes -->
-            <line x1="80" y1="10" x2="80" y2="150" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
-            <line x1="10" y1="80" x2="150" y2="80" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
-            <line x1="26" y1="26" x2="134" y2="134" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
-            <line x1="134" y1="26" x2="26" y2="134" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
-            <!-- Data polygon (animated) -->
-            <polygon id="radar-polygon"
-              points="80,16 134,55 116,122 44,122 26,55"
-              fill="rgba(201,169,110,0.08)"
-              stroke="#C9A96E"
-              stroke-width="1.2"
-              stroke-linejoin="round"
-              opacity="0"
-              style="transition: opacity 1s ease 0.5s"/>
-            <!-- Dots -->
-            <circle cx="80" cy="16" r="3" fill="#C9A96E" opacity="0"/>
-            <circle cx="134" cy="55" r="3" fill="#C9A96E" opacity="0"/>
-            <circle cx="116" cy="122" r="3" fill="#C9A96E" opacity="0"/>
-            <circle cx="44" cy="122" r="3" fill="#C9A96E" opacity="0"/>
-            <circle cx="26" cy="55" r="3" fill="#C9A96E" opacity="0"/>
+        <div class="radar-wrap">
+          <svg width="160" height="160" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
+            <circle cx="80" cy="80" r="52" fill="none" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
+            <circle cx="80" cy="80" r="35" fill="none" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
+            <circle cx="80" cy="80" r="18" fill="none" stroke="rgba(245,239,228,0.05)" stroke-width="1"/>
+            <line x1="80" y1="10" x2="80" y2="150" stroke="rgba(245,239,228,0.06)" stroke-width="1"/>
+            <line x1="10" y1="80" x2="150" y2="80" stroke="rgba(245,239,228,0.06)" stroke-width="1"/>
+            <line x1="26" y1="26" x2="134" y2="134" stroke="rgba(245,239,228,0.06)" stroke-width="1"/>
+            <line x1="134" y1="26" x2="26" y2="134" stroke="rgba(245,239,228,0.06)" stroke-width="1"/>
+            <polygon id="radar-polygon" points="80,16 134,55 116,122 44,122 26,55"
+              fill="rgba(201,169,110,0.08)" stroke="#C9A96E" stroke-width="1.2"
+              stroke-linejoin="round" opacity="0"/>
+            <circle class="radar-dot" cx="80"  cy="16"  r="3" fill="#C9A96E" opacity="0"/>
+            <circle class="radar-dot" cx="134" cy="55"  r="3" fill="#C9A96E" opacity="0"/>
+            <circle class="radar-dot" cx="116" cy="122" r="3" fill="#C9A96E" opacity="0"/>
+            <circle class="radar-dot" cx="44"  cy="122" r="3" fill="#C9A96E" opacity="0"/>
+            <circle class="radar-dot" cx="26"  cy="55"  r="3" fill="#C9A96E" opacity="0"/>
           </svg>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     WORK / PORTFOLIO
-══════════════════════════════════════════ -->
-<section id="work" class="section py-32 px-6 md:px-12 lg:px-20 border-t border-white/5">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+<!-- ══════════════ WORK ══════════════ -->
+<section id="work" class="section-wrap section-border">
+  <div class="container">
+    <div class="section-header">
       <div>
-        <div class="eyebrow mb-6 reveal"><div class="eyebrow-line"></div><span>Our Work</span></div>
-        <h2 class="font-serif text-[clamp(36px,5vw,64px)] font-light text-[#F5EFE4] leading-tight reveal" style="transition-delay:0.1s">
-          Products we've<br/>
-          <em style="font-style:italic;color:#C9A96E">shipped</em>
-        </h2>
+        <div class="eyebrow reveal" data-delay="0"><div class="eyebrow-line"></div><span>Our Work</span></div>
+        <h2 class="section-title reveal" data-delay="0.1">Products we've<br/><em>shipped</em></h2>
       </div>
-      <p class="text-sm text-white/40 leading-relaxed max-w-sm reveal" style="transition-delay:0.2s">
-        Every project starts as a business problem. It ends as a platform that runs without you.
-      </p>
+      <p class="section-sub reveal" data-delay="0.2">Every project starts as a business problem. It ends as a platform that runs without you.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-      <!-- Fitnity — featured card -->
-      <div class="work-card lg:col-span-2 bg-[#2A2320] reveal">
-        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[420px]">
-          <!-- Info -->
-          <div class="p-12 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3 mb-8">
-                <span class="text-[10px] tracking-widest uppercase text-[#C9A96E] border border-[rgba(201,169,110,0.25)] px-3 py-1">Own Product</span>
-                <span class="text-[10px] tracking-widest uppercase text-white/25 border border-white/8 px-3 py-1 flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#C4714A] animate-pulse inline-block"></span>
-                  Coming to App Store & Google Play
-                </span>
-              </div>
-              <h3 class="font-serif text-4xl md:text-5xl font-light text-[#F5EFE4] mb-4">Fitnity</h3>
-              <p class="text-sm text-white/40 leading-relaxed mb-8 max-w-md">
-                India's next-generation fitness and sports marketplace. Connects users with gyms, yoga studios, swimming centres, zumba studios, and sports facilities through one unified platform — with subscriptions, live bookings, QR check-ins, and coach sessions.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Flutter</span>
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Spring Boot 4</span>
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">PostgreSQL</span>
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">AWS</span>
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Razorpay</span>
-                <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Push Notifications</span>
-              </div>
-            </div>
-            <div class="mt-10">
-              <a href="https://fitnity.in" target="_blank" rel="noopener" class="btn-outline text-xs">
-                Visit fitnity.in
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </a>
-            </div>
+    <div class="work-grid">
+      <!-- Fitnity featured -->
+      <div class="work-card work-card-featured reveal" data-delay="0">
+        <div class="work-card-info">
+          <div class="work-badges">
+            <span class="badge-gold">Own Product</span>
+            <span class="badge-pulse">
+              <span class="pulse-dot" style="background:#C4714A"></span>
+              Coming to App Store & Google Play
+            </span>
           </div>
-          <!-- Visual -->
-          <div class="relative bg-[#1C1917] overflow-hidden min-h-[300px] flex items-center justify-center">
-            <div class="absolute inset-0"
-                 style="background: radial-gradient(circle at 60% 40%, rgba(18,112,95,0.15), transparent 60%), radial-gradient(circle at 20% 80%, rgba(201,169,110,0.08), transparent 50%)"></div>
-            <!-- Fitnity logo placeholder visual -->
-            <div class="relative z-10 text-center">
-              <div class="font-serif text-8xl font-light text-white/5 mb-4 select-none">fitnity</div>
-              <!-- Module pills -->
-              <div class="flex flex-wrap justify-center gap-3 max-w-xs">
-                <span class="text-[10px] tracking-wider uppercase text-[#12705F] border border-[rgba(18,112,95,0.3)] px-3 py-1.5">Gym</span>
-                <span class="text-[10px] tracking-wider uppercase text-[#12705F] border border-[rgba(18,112,95,0.3)] px-3 py-1.5">Yoga</span>
-                <span class="text-[10px] tracking-wider uppercase text-[#12705F] border border-[rgba(18,112,95,0.3)] px-3 py-1.5">Swimming</span>
-                <span class="text-[10px] tracking-wider uppercase text-[#12705F] border border-[rgba(18,112,95,0.3)] px-3 py-1.5">Zumba</span>
-                <span class="text-[10px] tracking-wider uppercase text-[#12705F] border border-[rgba(18,112,95,0.3)] px-3 py-1.5">Sports</span>
-              </div>
-              <p class="text-xs text-white/20 mt-6 tracking-widest uppercase">5 Modules · iOS & Android</p>
+          <h3 class="work-title">Fitnity</h3>
+          <p class="work-desc">India's next-generation fitness and sports marketplace. Connects users with gyms, yoga studios, swimming centres, zumba studios, and sports facilities through one unified platform — with subscriptions, live bookings, QR check-ins, and coach sessions.</p>
+          <div class="tag-row">
+            <span class="tag">Flutter</span><span class="tag">Spring Boot 4</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">Razorpay</span>
+          </div>
+          <a href="https://fitnity.in" target="_blank" rel="noopener" class="btn-outline work-btn">
+            Visit fitnity.in
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="work-card-visual">
+          <div class="work-card-visual-inner">
+            <div class="fitnity-bg-glow"></div>
+            <div class="fitnity-wordmark">fitnity</div>
+            <div class="fitnity-modules">
+              <span class="fmod">Gym</span><span class="fmod">Yoga</span><span class="fmod">Swimming</span><span class="fmod">Zumba</span><span class="fmod">Sports</span>
             </div>
+            <p class="fitnity-sub">5 Modules · iOS & Android</p>
           </div>
         </div>
       </div>
 
       <!-- KAARA -->
-      <div class="work-card bg-[#2A2320] p-10 reveal">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-[10px] tracking-widest uppercase text-white/35 border border-white/8 px-3 py-1">Client Work</span>
-          <span class="text-[10px] tracking-widest uppercase text-[#4A9A6A] border border-[rgba(74,154,106,0.25)] px-3 py-1 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#4A9A6A] animate-pulse inline-block"></span>
-            In Delivery
-          </span>
+      <div class="work-card work-card-sm reveal" data-delay="0.1">
+        <div class="work-badges mb-5">
+          <span class="badge-muted">Client Work</span>
+          <span class="badge-pulse badge-green"><span class="pulse-dot" style="background:#4A9A6A"></span>In Delivery</span>
         </div>
-        <h3 class="font-serif text-3xl font-light text-[#F5EFE4] mb-3">KAARA Studio</h3>
-        <p class="text-sm text-white/40 leading-relaxed mb-8">
-          Full booking platform for a luxury co-working and yoga studio in Surat. Real-time availability, Razorpay payments, Google Calendar sync, recurring plans, automated confirmation emails — near-zero operating cost.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Astro</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Netlify</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Google Calendar</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Razorpay</span>
+        <h3 class="work-title-sm">KAARA Studio</h3>
+        <p class="work-desc">Full booking platform for a luxury co-working and yoga studio in Surat. Real-time availability, Razorpay payments, Google Calendar sync, recurring plans, automated confirmation emails.</p>
+        <div class="tag-row mt-6">
+          <span class="tag">Astro</span><span class="tag">Netlify</span><span class="tag">Google Calendar</span><span class="tag">Razorpay</span>
         </div>
       </div>
 
       <!-- CitySmile -->
-      <div class="work-card bg-[#2A2320] p-10 reveal" style="transition-delay:0.1s">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-[10px] tracking-widest uppercase text-white/35 border border-white/8 px-3 py-1">Client Work</span>
-          <span class="text-[10px] tracking-widest uppercase text-[#4A9A6A] border border-[rgba(74,154,106,0.25)] px-3 py-1 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#4A9A6A] animate-pulse inline-block"></span>
-            In Delivery
-          </span>
+      <div class="work-card work-card-sm reveal" data-delay="0.2">
+        <div class="work-badges mb-5">
+          <span class="badge-muted">Client Work</span>
+          <span class="badge-pulse badge-green"><span class="pulse-dot" style="background:#4A9A6A"></span>In Delivery</span>
         </div>
-        <h3 class="font-serif text-3xl font-light text-[#F5EFE4] mb-3">City Smile Dental</h3>
-        <p class="text-sm text-white/40 leading-relaxed mb-8">
-          Mobile-first digital presence for a 14-year-old dental clinic in Vadodara. WhatsApp booking, Google Maps integration, before/after gallery — fully owned by the clinic, zero platform fees.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Static</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">WhatsApp</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">Netlify</span>
-          <span class="text-[10px] tracking-wider uppercase text-white/25 border border-white/8 px-3 py-1">12 Days</span>
+        <h3 class="work-title-sm">City Smile Dental</h3>
+        <p class="work-desc">Mobile-first digital presence for a 14-year-old dental clinic in Vadodara. WhatsApp booking, Google Maps integration, before/after gallery — fully owned by the clinic, zero platform fees.</p>
+        <div class="tag-row mt-6">
+          <span class="tag">Static</span><span class="tag">WhatsApp</span><span class="tag">Netlify</span><span class="tag">12 Days</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════ -->
-<section id="about" class="section py-32 px-6 md:px-12 lg:px-20 border-t border-white/5">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about" class="section-wrap section-border">
+  <div class="container">
+    <div class="about-grid">
       <div>
-        <div class="eyebrow mb-6 reveal"><div class="eyebrow-line"></div><span>About</span></div>
-        <h2 class="font-serif text-[clamp(36px,4vw,56px)] font-light text-[#F5EFE4] leading-tight mb-8 reveal" style="transition-delay:0.1s">
-          We are<br/>
-          <em style="font-style:italic;color:#C9A96E">Quantaverse Labs</em>
-        </h2>
-        <div class="space-y-5 reveal" style="transition-delay:0.2s">
-          <p class="text-sm text-white/50 leading-relaxed">
-            Quantaverse Labs Private Limited is a digital product company based in India. We design, build, and automate digital businesses — from consumer-facing marketplaces to operational back-office systems.
-          </p>
-          <p class="text-sm text-white/50 leading-relaxed">
-            We operate on two tracks: our own products, where we build and own the IP, and client infrastructure, where we build digital systems for businesses that want to operate more efficiently.
-          </p>
-          <p class="text-sm text-white/50 leading-relaxed">
-            Our approach is simple: no SaaS lock-in, no recurring agency fees, no middle-layer dependencies. We hand you working software and full ownership. The systems we build run autonomously — so you focus on your business, not your tools.
-          </p>
+        <div class="eyebrow reveal" data-delay="0"><div class="eyebrow-line"></div><span>About</span></div>
+        <h2 class="section-title reveal" data-delay="0.1">We are<br/><em>Quantaverse Labs</em></h2>
+        <div class="about-body reveal" data-delay="0.2">
+          <p>Quantaverse Labs Private Limited is a digital product company based in India. We design, build, and automate digital businesses — from consumer-facing marketplaces to operational back-office systems.</p>
+          <p>We operate on two tracks: our own products, where we build and own the IP, and client infrastructure, where we build digital systems for businesses that want to operate more efficiently.</p>
+          <p>Our approach is simple: no SaaS lock-in, no recurring agency fees, no middle-layer dependencies. We hand you working software and full ownership. The systems we build run autonomously — so you focus on your business, not your tools.</p>
         </div>
       </div>
 
-      <!-- Values grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 reveal" style="transition-delay:0.2s">
-        <div class="bg-[#1C1917] p-8">
-          <div class="w-8 h-8 border border-[rgba(201,169,110,0.2)] flex items-center justify-center mb-5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </div>
-          <h4 class="font-serif text-xl font-light text-[#F5EFE4] mb-3">100% Ownership</h4>
-          <p class="text-xs text-white/35 leading-relaxed">Full source code, credentials, and infrastructure access transferred to you on day 15. No vendor lock-in. Ever.</p>
+      <div class="values-grid reveal" data-delay="0.2">
+        <div class="value-card">
+          <div class="value-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4 class="value-title">100% Ownership</h4>
+          <p class="value-desc">Full source code, credentials, and infrastructure access transferred to you on day 15. No vendor lock-in. Ever.</p>
         </div>
-        <div class="bg-[#1C1917] p-8">
-          <div class="w-8 h-8 border border-[rgba(201,169,110,0.2)] flex items-center justify-center mb-5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#C9A96E" stroke-width="1.2"/><path d="M8 5V8.5L10.5 10" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/></svg>
-          </div>
-          <h4 class="font-serif text-xl font-light text-[#F5EFE4] mb-3">15-Day Delivery</h4>
-          <p class="text-xs text-white/35 leading-relaxed">We deliver production-ready platforms in 15 days — not because we rush, but because we've done it before.</p>
+        <div class="value-card">
+          <div class="value-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#C9A96E" stroke-width="1.2"/><path d="M8 5V8.5L10.5 10" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <h4 class="value-title">15-Day Delivery</h4>
+          <p class="value-desc">We deliver production-ready platforms in 15 days — not because we rush, but because we've done it before.</p>
         </div>
-        <div class="bg-[#1C1917] p-8">
-          <div class="w-8 h-8 border border-[rgba(201,169,110,0.2)] flex items-center justify-center mb-5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12V7" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/><path d="M8 12V4" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/><path d="M12 12V9" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </div>
-          <h4 class="font-serif text-xl font-light text-[#F5EFE4] mb-3">Built to Scale</h4>
-          <p class="text-xs text-white/35 leading-relaxed">Architecture decisions are made for where your business will be in 3 years, not just today.</p>
+        <div class="value-card">
+          <div class="value-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12V7M8 12V4M12 12V9" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4 class="value-title">Built to Scale</h4>
+          <p class="value-desc">Architecture decisions are made for where your business will be in 3 years, not just today.</p>
         </div>
-        <div class="bg-[#1C1917] p-8">
-          <div class="w-8 h-8 border border-[rgba(201,169,110,0.2)] flex items-center justify-center mb-5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="9" rx="1" stroke="#C9A96E" stroke-width="1.2"/><path d="M5 5V4a3 3 0 016 0v1" stroke="#C9A96E" stroke-width="1.2"/><circle cx="8" cy="10" r="1.5" fill="#C9A96E" opacity="0.7"/></svg>
-          </div>
-          <h4 class="font-serif text-xl font-light text-[#F5EFE4] mb-3">Security First</h4>
-          <p class="text-xs text-white/35 leading-relaxed">JWT auth, encrypted storage, OWASP-aware code, and production-hardened infrastructure on every project.</p>
+        <div class="value-card">
+          <div class="value-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="9" rx="1" stroke="#C9A96E" stroke-width="1.2"/><path d="M5 5V4a3 3 0 016 0v1" stroke="#C9A96E" stroke-width="1.2"/><circle cx="8" cy="10" r="1.5" fill="#C9A96E" opacity="0.7"/></svg></div>
+          <h4 class="value-title">Security First</h4>
+          <p class="value-desc">JWT auth, encrypted storage, OWASP-aware code, and production-hardened infrastructure on every project.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     CONTACT
-══════════════════════════════════════════ -->
-<section id="contact" class="section py-32 px-6 md:px-12 lg:px-20 border-t border-white/5">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-
-      <!-- Left: info -->
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact" class="section-wrap section-border">
+  <div class="container">
+    <div class="contact-grid">
       <div>
-        <div class="eyebrow mb-6 reveal"><div class="eyebrow-line"></div><span>Start a Project</span></div>
-        <h2 class="font-serif text-[clamp(36px,4vw,56px)] font-light text-[#F5EFE4] leading-tight mb-8 reveal" style="transition-delay:0.1s">
-          Let's build<br/>
-          something that<br/>
-          <em style="font-style:italic;color:#C9A96E">works.</em>
-        </h2>
-        <p class="text-sm text-white/40 leading-relaxed mb-12 reveal" style="transition-delay:0.2s">
-          Tell us what you're building. We'll send you a proposal within 24 hours — including timeline, tech stack, and investment. No discovery calls until you've seen a plan.
-        </p>
+        <div class="eyebrow reveal" data-delay="0"><div class="eyebrow-line"></div><span>Start a Project</span></div>
+        <h2 class="section-title reveal" data-delay="0.1">Let's build<br/>something that<br/><em>works.</em></h2>
+        <p class="body-text reveal" data-delay="0.2">Tell us what you're building. We'll send you a proposal within 24 hours — including timeline, tech stack, and investment. No discovery calls until you've seen a plan.</p>
 
-        <div class="space-y-6 reveal" style="transition-delay:0.3s">
-          <a href="https://wa.me/919421462238" target="_blank" rel="noopener"
-             class="flex items-center gap-5 group">
-            <div class="w-12 h-12 border border-[rgba(201,169,110,0.2)] flex items-center justify-center group-hover:border-[rgba(201,169,110,0.5)] transition-colors duration-300">
+        <div class="contact-links reveal" data-delay="0.3">
+          <a href="https://wa.me/919421462238" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M10 2C5.6 2 2 5.6 2 10c0 1.4.4 2.8 1 4L2 18l4.2-.9c1.1.6 2.4.9 3.8.9 4.4 0 8-3.6 8-8s-3.6-8-8-8z" stroke="#C9A96E" stroke-width="1.2"/>
                 <path d="M7.5 8.5c.5 1 1.2 2 2 2.5.8.5 1.5.7 2 .5l.5-.2c.2-.1.2-.3.1-.5l-.7-1c-.1-.2-.3-.2-.5-.1l-.4.3c-.1.1-.3.1-.4 0-.6-.4-1.2-1-1.4-1.7 0-.1 0-.3.1-.4l.3-.4c.1-.2.1-.4-.1-.5l-1-.7c-.2-.1-.4-.1-.5.1l-.2.5c-.2.5 0 1.2.2 1.6z" fill="#C9A96E" opacity="0.8"/>
               </svg>
             </div>
-            <div>
-              <p class="text-[10px] tracking-widest uppercase text-white/30 mb-1">WhatsApp</p>
-              <p class="text-sm text-[#F5EFE4] group-hover:text-[#C9A96E] transition-colors duration-300">+91 94214 62238</p>
-            </div>
+            <div><p class="contact-link-label">WhatsApp</p><p class="contact-link-value">+91 94214 62238</p></div>
           </a>
-
-          <a href="mailto:contact@quantaverse.in"
-             class="flex items-center gap-5 group">
-            <div class="w-12 h-12 border border-[rgba(201,169,110,0.2)] flex items-center justify-center group-hover:border-[rgba(201,169,110,0.5)] transition-colors duration-300">
+          <a href="mailto:contact@quantaverse.in" class="contact-link">
+            <div class="contact-link-icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <rect x="2" y="4" width="16" height="12" rx="1.5" stroke="#C9A96E" stroke-width="1.2"/>
                 <path d="M2 6L10 11L18 6" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
               </svg>
             </div>
-            <div>
-              <p class="text-[10px] tracking-widest uppercase text-white/30 mb-1">Email</p>
-              <p class="text-sm text-[#F5EFE4] group-hover:text-[#C9A96E] transition-colors duration-300">contact@quantaverse.in</p>
-            </div>
+            <div><p class="contact-link-label">Email</p><p class="contact-link-value">contact@quantaverse.in</p></div>
           </a>
-
-          <div class="flex items-center gap-5">
-            <div class="w-12 h-12 border border-[rgba(201,169,110,0.2)] flex items-center justify-center">
+          <div class="contact-link">
+            <div class="contact-link-icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <circle cx="10" cy="9" r="3" stroke="#C9A96E" stroke-width="1.2"/>
                 <path d="M10 2C6.7 2 4 4.7 4 8c0 4 6 10 6 10s6-6 6-10c0-3.3-2.7-6-6-6z" stroke="#C9A96E" stroke-width="1.2"/>
               </svg>
             </div>
-            <div>
-              <p class="text-[10px] tracking-widest uppercase text-white/30 mb-1">Based in</p>
-              <p class="text-sm text-[#F5EFE4]">India · Remote-first</p>
-            </div>
+            <div><p class="contact-link-label">Based in</p><p class="contact-link-value">India · Remote-first</p></div>
           </div>
         </div>
       </div>
 
-      <!-- Right: form -->
-      <div class="reveal" style="transition-delay:0.2s">
-        <form id="contact-form" class="space-y-4" netlify name="contact" method="POST">
+      <div class="reveal" data-delay="0.2">
+        <form id="contact-form" netlify name="contact" method="POST" class="contact-form">
           <input type="hidden" name="form-name" value="contact" />
-          <div class="grid grid-cols-2 gap-4">
-            <input type="text" name="name" placeholder="Your Name" class="form-field" required />
-            <input type="text" name="company" placeholder="Company / Business" class="form-field" />
+          <div class="form-row">
+            <input type="text"  name="name"    placeholder="Your Name"           class="form-field" required />
+            <input type="text"  name="company" placeholder="Company / Business"  class="form-field" />
           </div>
-          <input type="email" name="email" placeholder="Email Address" class="form-field" required />
-          <input type="tel" name="phone" placeholder="WhatsApp Number" class="form-field" />
+          <input type="email" name="email"   placeholder="Email Address"       class="form-field" required />
+          <input type="tel"   name="phone"   placeholder="WhatsApp Number"     class="form-field" />
           <select name="service" class="form-field" required>
             <option value="" disabled selected>What are you building?</option>
             <option value="mobile-app">Mobile App (iOS / Android)</option>
@@ -766,80 +566,440 @@ import '../styles/global.css';
             <option value="custom">Custom Software</option>
             <option value="not-sure">Not sure — let's talk</option>
           </select>
-          <textarea name="message" rows="5" placeholder="Tell us about your project — what it does, who it's for, and when you need it." class="form-field resize-none"></textarea>
-          <button type="submit" class="btn-primary w-full justify-center">
+          <textarea name="message" rows="5" placeholder="Tell us about your project — what it does, who it's for, and when you need it." class="form-field" style="resize:none"></textarea>
+          <button type="submit" class="btn-primary btn-full">
             Send Enquiry
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
           </button>
-          <p id="form-success" class="text-sm text-[#4A9A6A] text-center hidden">Thank you — we'll be in touch within 24 hours.</p>
+          <p id="form-success" class="form-success">Thank you — we'll be in touch within 24 hours.</p>
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
-<footer class="border-t border-white/5 px-6 md:px-12 lg:px-20 py-16">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-12">
-      <!-- Logo + tagline -->
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
       <div>
-        <svg width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-4">
-          <g transform="translate(0, 2)">
+        <svg width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-logo">
+          <g transform="translate(0,2)">
             <rect x="2" y="9" width="18" height="18" rx="1.2" stroke="#C9A96E" stroke-width="1.1" transform="rotate(45 11 18)" fill="none"/>
             <rect x="5.5" y="12.5" width="11" height="11" rx="0.8" stroke="#C9A96E" stroke-width="0.7" opacity="0.4" transform="rotate(45 11 18)" fill="none"/>
             <rect x="8" y="15" width="6" height="6" rx="0.4" fill="#C9A96E" opacity="0.85" transform="rotate(45 11 18)"/>
           </g>
-          <text x="35" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#F5EFE4">QUANTAVERSE</text>
-          <text x="35" y="34" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="300" letter-spacing="4.5" fill="#C9A96E">LABS  PVT  LTD</text>
+          <text x="35" y="19" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#F5EFE4">QUANTAVERSE</text>
+          <text x="35" y="34" font-family="'DM Sans',sans-serif" font-size="8.5" font-weight="300" letter-spacing="4.5" fill="#C9A96E">LABS  PVT  LTD</text>
         </svg>
-        <p class="text-xs text-white/30 max-w-xs leading-relaxed">Building digital systems that work as hard as you do.</p>
+        <p class="footer-tagline">Building digital systems that work as hard as you do.</p>
       </div>
-      <!-- Links -->
-      <div class="flex flex-wrap gap-x-10 gap-y-4">
-        <a href="#services" class="text-xs tracking-widest uppercase text-white/30 hover:text-[#C9A96E] transition-colors">Services</a>
-        <a href="#work" class="text-xs tracking-widest uppercase text-white/30 hover:text-[#C9A96E] transition-colors">Work</a>
-        <a href="#about" class="text-xs tracking-widest uppercase text-white/30 hover:text-[#C9A96E] transition-colors">About</a>
-        <a href="#contact" class="text-xs tracking-widest uppercase text-white/30 hover:text-[#C9A96E] transition-colors">Contact</a>
-        <a href="https://fitnity.in" target="_blank" rel="noopener" class="text-xs tracking-widest uppercase text-white/30 hover:text-[#C9A96E] transition-colors">Fitnity ↗</a>
-      </div>
+      <nav class="footer-nav">
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#work"     class="footer-link">Work</a>
+        <a href="#about"    class="footer-link">About</a>
+        <a href="#contact"  class="footer-link">Contact</a>
+        <a href="https://fitnity.in" target="_blank" rel="noopener" class="footer-link">Fitnity ↗</a>
+      </nav>
     </div>
-    <div class="gold-rule mb-8">
-      <div class="gold-rule-line"></div>
-      <div class="gold-rule-diamond"></div>
-      <div class="gold-rule-line"></div>
+    <div class="gold-rule mb-6">
+      <div class="gold-rule-line"></div><div class="gold-rule-diamond"></div><div class="gold-rule-line"></div>
     </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-[10px] tracking-wider uppercase text-white/20">© 2026 Quantaverse Labs Private Limited · quantaverse.in</p>
-      <p class="text-[10px] tracking-widest uppercase text-[#C9A96E] opacity-50">Build once. Automate forever. ✦</p>
+    <div class="footer-bottom">
+      <p>© 2026 Quantaverse Labs Private Limited · quantaverse.in</p>
+      <p class="footer-closing">Build once. Automate forever. ✦</p>
     </div>
   </div>
 </footer>
 
 
-<!-- ══════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════ -->
+<!-- ══════════════ STYLES ══════════════ -->
 <style>
+  /* ── FONTS ── */
+  .hero-headline, .section-title, .work-title, .work-title-sm,
+  .chart-title, .step-title, .value-title, .counter-num,
+  .fitnity-wordmark, h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* ── NAV ── */
+  .nav-link {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,239,228,0.38); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-link:hover { color: #C9A96E; }
+  .btn-cta {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #1C1917; background: #C9A96E;
+    padding: 12px 28px; text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-cta:hover { background: #E2C98A; transform: translateY(-1px); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: #1C1917;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
+  .mobile-close-btn {
+    position: absolute; top: 2rem; right: 2rem;
+    color: rgba(245,239,228,0.4); background: none; border: none; cursor: pointer;
+    transition: color 0.2s;
+  }
+  .mobile-close-btn:hover { color: #F5EFE4; }
+  .mobile-nav-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem,8vw,3.5rem); font-weight: 300;
+    color: #F5EFE4; text-decoration: none;
+    transition: color 0.3s;
+  }
+  .mobile-nav-link:hover { color: #C9A96E; }
+
+  /* ── HERO ── */
+  .hero-section {
+    position: relative; min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; overflow: hidden;
+  }
+  #hero-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+  .hero-glow-1 {
+    position: absolute; top: 0; right: 0;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.07), transparent 70%);
+    transform: translate(30%,-30%); pointer-events: none; z-index: 0;
+  }
+  .hero-glow-2 {
+    position: absolute; bottom: 0; left: 0;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,113,74,0.06), transparent 70%);
+    transform: translate(-30%,30%); pointer-events: none; z-index: 0;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    padding: 10rem 1.5rem 6rem;
+    width: 100%; max-width: 1280px; margin: 0 auto;
+  }
+  @media (min-width: 768px)  { .hero-content { padding-left: 3rem; padding-right: 3rem; } }
+  @media (min-width: 1024px) { .hero-content { padding-left: 5rem; padding-right: 5rem; } }
+  .hero-inner { max-width: 820px; }
+  .hero-headline {
+    font-size: clamp(44px,7.5vw,92px); font-weight: 300; line-height: 1.04;
+    color: #F5EFE4; margin: 2rem 0;
+  }
+  .hero-headline em { font-style: italic; color: #C9A96E; }
+  .hero-sub {
+    font-size: 0.9375rem; font-weight: 300; line-height: 1.75;
+    color: rgba(245,239,228,0.42); max-width: 560px; margin-bottom: 3.5rem;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+  }
+  .scroll-track {
+    width: 1px; height: 48px; overflow: hidden;
+    background: rgba(245,239,228,0.1);
+  }
+  .scroll-thumb {
+    width: 100%; height: 50%;
+    background: #C9A96E;
+    animation: scrollDrop 1.8s ease-in-out infinite;
+  }
+  .scroll-label {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(245,239,228,0.22);
+  }
   @keyframes scrollDrop {
     0%   { transform: translateY(-100%); opacity: 0; }
     20%  { opacity: 1; }
     80%  { opacity: 1; }
     100% { transform: translateY(200%); opacity: 0; }
   }
-  .font-serif { font-family: 'Cormorant Garamond', serif; }
-  .font-sans  { font-family: 'DM Sans', sans-serif; }
-  .process-line {
-    position: absolute; left: 20px; top: 24px; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, rgba(201,169,110,0.3), rgba(201,169,110,0.0));
+
+  .hero-stats-bar {
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(245,239,228,0.06);
+    padding: 0 1.5rem;
+    display: grid; grid-template-columns: repeat(2,1fr);
   }
+  @media (min-width: 768px) {
+    .hero-stats-bar { grid-template-columns: repeat(4,1fr); padding: 0 3rem; }
+  }
+  @media (min-width: 1024px) { .hero-stats-bar { padding: 0 5rem; } }
+  .stat-item {
+    padding: 2rem 2rem 2rem 0;
+    border-right: 1px solid rgba(245,239,228,0.05);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.25rem; font-weight: 300; color: #C9A96E; margin-bottom: 0.25rem;
+  }
+  .stat-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,239,228,0.3);
+  }
+
+  /* ── LAYOUT UTILITIES ── */
+  .container { max-width: 1280px; margin: 0 auto; width: 100%; }
+  .section-wrap { padding: 7rem 1.5rem; }
+  @media (min-width: 768px)  { .section-wrap { padding-left: 3rem; padding-right: 3rem; } }
+  @media (min-width: 1024px) { .section-wrap { padding-left: 5rem; padding-right: 5rem; } }
+  .section-border { border-top: 1px solid rgba(245,239,228,0.05); }
+
+  .section-header {
+    display: flex; flex-direction: column; gap: 2rem; margin-bottom: 5rem;
+  }
+  @media (min-width: 768px) {
+    .section-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  }
+  .section-title {
+    font-size: clamp(32px,4.5vw,60px); font-weight: 300;
+    line-height: 1.1; color: #F5EFE4; margin-top: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: #C9A96E; }
+  .section-sub { font-size: 13px; color: rgba(245,239,228,0.38); line-height: 1.8; max-width: 340px; }
+  .body-text   { font-size: 13px; color: rgba(245,239,228,0.38); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #1C1917; background: #C9A96E;
+    padding: 16px 36px; text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #E2C98A; transform: translateY(-1px); }
+  .btn-full { width: 100%; justify-content: center; }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #F5EFE4; border: 1px solid rgba(245,239,228,0.22);
+    padding: 15px 36px; text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .btn-outline:hover { border-color: rgba(201,169,110,0.45); background: rgba(201,169,110,0.08); }
+
+  /* ── TAGS ── */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
+  .tag {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(245,239,228,0.28);
+    border: 1px solid rgba(245,239,228,0.09);
+    padding: 5px 12px;
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1px;
+    background: rgba(245,239,228,0.06);
+  }
+  @media (min-width: 768px)  { .services-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
+
+  .service-card {
+    background: #1C1917; padding: 2.5rem;
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: #222018; transform: translateY(-4px); }
+  .service-icon {
+    width: 44px; height: 44px; margin-bottom: 1.5rem;
+    border: 1px solid rgba(201,169,110,0.22);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(201,169,110,0.1); }
+  .service-num {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(201,169,110,0.6); margin-bottom: 0.75rem;
+  }
+  .service-title {
+    font-size: 1.4rem; font-weight: 300; color: #F5EFE4; margin-bottom: 1rem;
+  }
+  .service-desc { font-size: 13px; color: rgba(245,239,228,0.38); line-height: 1.75; }
+
+  /* ── PROCESS ── */
+  .process-grid {
+    display: grid; grid-template-columns: 1fr; gap: 5rem;
+  }
+  @media (min-width: 1024px) { .process-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+
+  .process-left { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+
+  .process-steps { position: relative; padding-left: 3.5rem; }
+  .process-vline {
+    position: absolute; left: 1.25rem; top: 1.5rem; bottom: 1rem; width: 1px;
+    background: linear-gradient(to bottom, rgba(201,169,110,0.3), transparent);
+  }
+  .process-step { position: relative; margin-bottom: 3rem; }
+  .process-step:last-child { margin-bottom: 0; }
+  .step-dot {
+    position: absolute; left: -3.5rem; top: 0;
+    width: 2.5rem; height: 2.5rem; border-radius: 50%;
+    background: #2A2320; border: 1px solid rgba(201,169,110,0.3);
+    display: flex; align-items: center; justify-content: center; z-index: 1;
+    font-size: 11px; font-weight: 500; color: #C9A96E;
+  }
+  .step-dot-dim { border-color: rgba(201,169,110,0.12); }
+  .step-phase { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #C4714A; margin-bottom: 0.5rem; }
+  .step-title { font-size: 1.375rem; font-weight: 300; color: #F5EFE4; margin-bottom: 0.75rem; }
+  .step-desc  { font-size: 13px; color: rgba(245,239,228,0.38); line-height: 1.75; }
+
+  /* ── STATS ── */
+  .stats-counters {
+    display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
+    background: rgba(245,239,228,0.06); margin-bottom: 3rem;
+  }
+  @media (min-width: 768px) { .stats-counters { grid-template-columns: repeat(4,1fr); } }
+  .counter-item { background: #1C1917; padding: 2.5rem; text-align: center; }
+  .counter-num {
+    font-size: clamp(40px,5.5vw,72px); font-weight: 300; color: #C9A96E; line-height: 1; margin-bottom: 0.75rem;
+  }
+  .counter-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,228,0.3); }
+
+  .charts-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  @media (min-width: 768px) { .charts-grid { grid-template-columns: repeat(3,1fr); } }
+  .chart-card {
+    background: #2A2320; border: 1px solid rgba(245,239,228,0.05); padding: 2rem;
+  }
+  .chart-eyebrow { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: #C9A96E; margin-bottom: 0.5rem; }
+  .chart-title { font-size: 1.2rem; font-weight: 300; color: #F5EFE4; margin-bottom: 1.5rem; }
+  .chart-donut-wrap { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+  .chart-legend { display: flex; flex-direction: column; gap: 0.5rem; }
+  .legend-row { display: flex; align-items: center; gap: 0.5rem; font-size: 11px; color: rgba(245,239,228,0.4); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .ml-auto { margin-left: auto; }
+
+  .cap-bars { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 1.5rem; }
+  .cap-row {}
+  .cap-labels { display: flex; justify-content: space-between; font-size: 11px; color: rgba(245,239,228,0.38); margin-bottom: 0.5rem; }
+  .cap-track { height: 1px; background: rgba(245,239,228,0.08); position: relative; }
+  .cap-fill { position: absolute; left: 0; top: 0; height: 1px; background: #C9A96E; width: 0; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+  .radar-wrap { display: flex; justify-content: center; }
+
+  /* ── WORK ── */
+  .work-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  @media (min-width: 1024px) { .work-grid { grid-template-columns: repeat(2,1fr); } }
+
+  .work-card {
+    border: 1px solid rgba(245,239,228,0.07); background: #2A2320;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .work-card:hover { border-color: rgba(201,169,110,0.3); transform: translateY(-5px); }
+  .work-card-featured { grid-column: 1 / -1; }
+  .work-card-featured > div { display: grid; grid-template-columns: 1fr; min-height: 400px; }
+  @media (min-width: 1024px) { .work-card-featured > div { grid-template-columns: 1fr 1fr; } }
+
+  .work-card-info { padding: 3rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .work-card-visual {
+    background: #1C1917; min-height: 280px;
+    display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;
+  }
+  .work-card-visual-inner { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+  .fitnity-bg-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(18,112,95,0.15), transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(201,169,110,0.08), transparent 50%);
+  }
+  .fitnity-wordmark {
+    font-size: 80px; font-weight: 300; color: rgba(245,239,228,0.04);
+    margin-bottom: 1.5rem; user-select: none;
+  }
+  .fitnity-modules { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 280px; }
+  .fmod {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: #12705F; border: 1px solid rgba(18,112,95,0.3); padding: 6px 14px;
+  }
+  .fitnity-sub { font-size: 11px; color: rgba(245,239,228,0.2); margin-top: 1.5rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .work-card-sm { padding: 2.5rem; }
+  .work-title  { font-size: clamp(28px,3vw,40px); font-weight: 300; color: #F5EFE4; margin-bottom: 1rem; }
+  .work-title-sm { font-size: 1.75rem; font-weight: 300; color: #F5EFE4; margin-bottom: 0.75rem; }
+  .work-desc { font-size: 13px; color: rgba(245,239,228,0.38); line-height: 1.75; }
+  .work-btn { margin-top: 2.5rem; font-size: 11px; padding: 12px 24px; }
+  .work-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .mb-5 { margin-bottom: 1.25rem; }
+  .mt-6 { margin-top: 1.5rem; }
+  .badge-gold { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #C9A96E; border: 1px solid rgba(201,169,110,0.3); padding: 4px 12px; }
+  .badge-muted { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(245,239,228,0.3); border: 1px solid rgba(245,239,228,0.08); padding: 4px 12px; }
+  .badge-pulse { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,228,0.3); border: 1px solid rgba(245,239,228,0.08); padding: 4px 12px; }
+  .badge-green { color: #4A9A6A; border-color: rgba(74,154,106,0.25); }
+  .pulse-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 5rem; }
+  @media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+  .about-body { display: flex; flex-direction: column; gap: 1.25rem; }
+  .about-body p { font-size: 13px; color: rgba(245,239,228,0.45); line-height: 1.8; }
+  .values-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(245,239,228,0.06); }
+  @media (min-width: 640px) { .values-grid { grid-template-columns: repeat(2,1fr); } }
+  .value-card { background: #1C1917; padding: 2rem; }
+  .value-icon { width: 2rem; height: 2rem; border: 1px solid rgba(201,169,110,0.18); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .value-title { font-size: 1.2rem; font-weight: 300; color: #F5EFE4; margin-bottom: 0.75rem; }
+  .value-desc { font-size: 12px; color: rgba(245,239,228,0.32); line-height: 1.7; }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 5rem; }
+  @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+  .contact-links { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-link { display: flex; align-items: center; gap: 1.25rem; text-decoration: none; }
+  .contact-link-icon {
+    width: 3rem; height: 3rem; flex-shrink: 0;
+    border: 1px solid rgba(201,169,110,0.2);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.3s;
+  }
+  .contact-link:hover .contact-link-icon { border-color: rgba(201,169,110,0.5); }
+  .contact-link-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(245,239,228,0.28); margin-bottom: 0.25rem; }
+  .contact-link-value { font-size: 14px; color: #F5EFE4; transition: color 0.3s; }
+  .contact-link:hover .contact-link-value { color: #C9A96E; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-field {
+    width: 100%; background: rgba(245,239,228,0.04); border: 1px solid rgba(245,239,228,0.1);
+    color: #F5EFE4; font-family: 'DM Sans', sans-serif; font-size: 14px;
+    padding: 16px 20px; outline: none; transition: border-color 0.3s;
+  }
+  .form-field::placeholder { color: rgba(245,239,228,0.28); }
+  .form-field:focus { border-color: rgba(201,169,110,0.4); }
+  .form-field option { background: #2A2320; }
+  .form-success { font-size: 13px; color: #4A9A6A; text-align: center; display: none; }
+
+  /* ── FOOTER ── */
+  .footer { border-top: 1px solid rgba(245,239,228,0.05); padding: 4rem 1.5rem; }
+  @media (min-width: 768px)  { .footer { padding-left: 3rem; padding-right: 3rem; } }
+  @media (min-width: 1024px) { .footer { padding-left: 5rem; padding-right: 5rem; } }
+  .footer-top { display: flex; flex-direction: column; gap: 3rem; margin-bottom: 3rem; }
+  @media (min-width: 1024px) { .footer-top { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .footer-logo { display: block; margin-bottom: 1rem; }
+  .footer-tagline { font-size: 12px; color: rgba(245,239,228,0.28); max-width: 240px; line-height: 1.6; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 2rem 2.5rem; }
+  .footer-link { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,228,0.28); text-decoration: none; transition: color 0.3s; }
+  .footer-link:hover { color: #C9A96E; }
+  .footer-bottom { display: flex; flex-direction: column; gap: 0.5rem; }
+  @media (min-width: 640px) { .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .footer-bottom p { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,239,228,0.18); }
+  .footer-closing { color: rgba(201,169,110,0.45) !important; }
 </style>
 
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
 <script>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -848,74 +1008,107 @@ import Chart from 'chart.js/auto';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ── NAV SCROLL ──────────────────────────────
+// ── NAV ──────────────────────────────────────
 const nav = document.getElementById('nav')!;
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// ── MOBILE MENU ─────────────────────────────
-const mobileBtn  = document.getElementById('mobile-menu-btn')!;
-const mobileMenu = document.getElementById('mobile-menu')!;
+// ── MOBILE MENU ──────────────────────────────
+const mobileBtn   = document.getElementById('mobile-menu-btn')!;
+const mobileMenu  = document.getElementById('mobile-menu')!;
 const mobileClose = document.getElementById('mobile-close')!;
+const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-function openMenu() {
-  mobileMenu.style.opacity = '1';
-  mobileMenu.style.pointerEvents = 'auto';
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  mobileMenu.style.opacity = '0';
-  mobileMenu.style.pointerEvents = 'none';
-  document.body.style.overflow = '';
-}
-mobileBtn.addEventListener('click', openMenu);
-mobileClose.addEventListener('click', closeMenu);
-document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+mobileBtn.addEventListener('click',  () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+mobileLinks.forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-// ── THREE.JS HERO ────────────────────────────
-const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+// ── THREE.JS HERO — enhanced ─────────────────
+const canvas   = document.getElementById('hero-canvas') as HTMLCanvasElement;
 const scene    = new THREE.Scene();
-const camera   = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera   = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-camera.position.z = 6;
+camera.position.z = 5;
 
-// Particle field
-const count = 1200;
-const positions = new Float32Array(count * 3);
-const opacities = new Float32Array(count);
-for (let i = 0; i < count; i++) {
-  positions[i * 3]     = (Math.random() - 0.5) * 20;
-  positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-  positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-  opacities[i]         = Math.random();
+// ── Particle network — varied sizes, depth, opacity
+const COUNT = 800;
+const pos   = new Float32Array(COUNT * 3);
+const sizes = new Float32Array(COUNT);
+
+for (let i = 0; i < COUNT; i++) {
+  const depth = Math.random();
+  pos[i*3]   = (Math.random() - 0.5) * 18;
+  pos[i*3+1] = (Math.random() - 0.5) * 10;
+  pos[i*3+2] = -depth * 8;
+  // Closer particles are bigger
+  sizes[i] = 0.5 + (1 - depth) * 2.5;
 }
 const geo = new THREE.BufferGeometry();
-geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-const mat = new THREE.PointsMaterial({ color: 0xC9A96E, size: 0.03, transparent: true, opacity: 0.5 });
-scene.add(new THREE.Points(geo, mat));
+geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+geo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
 
-// Subtle grid lines
-const gridMat = new THREE.LineBasicMaterial({ color: 0xC9A96E, transparent: true, opacity: 0.04 });
-for (let i = -5; i <= 5; i++) {
-  const g1 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(i * 2, -6, 0), new THREE.Vector3(i * 2, 6, 0)]);
-  const g2 = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-10, i * 1.2, 0), new THREE.Vector3(10, i * 1.2, 0)]);
-  scene.add(new THREE.Line(g1, gridMat));
-  scene.add(new THREE.Line(g2, gridMat));
+// Custom shader material for circular, glowing particles
+const shaderMat = new THREE.ShaderMaterial({
+  uniforms: { uColor: { value: new THREE.Color(0xC9A96E) }, uOpacity: { value: 0.6 } },
+  vertexShader: `
+    attribute float size;
+    void main() {
+      vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+      gl_PointSize = size * (280.0 / -mvPosition.z);
+      gl_Position = projectionMatrix * mvPosition;
+    }
+  `,
+  fragmentShader: `
+    uniform vec3 uColor;
+    uniform float uOpacity;
+    void main() {
+      float d = length(gl_PointCoord - vec2(0.5));
+      if (d > 0.5) discard;
+      float alpha = (1.0 - d * 2.0) * uOpacity;
+      gl_FragColor = vec4(uColor, alpha);
+    }
+  `,
+  transparent: true,
+  depthWrite: false,
+});
+scene.add(new THREE.Points(geo, shaderMat));
+
+// ── Subtle gold grid — very faint depth plane
+const gridMat = new THREE.LineBasicMaterial({ color: 0xC9A96E, transparent: true, opacity: 0.03 });
+for (let i = -6; i <= 6; i++) {
+  const gv = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(i * 1.8, -6, -4), new THREE.Vector3(i * 1.8, 6, -4)
+  ]);
+  const gh = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(-11, i * 1.1, -4), new THREE.Vector3(11, i * 1.1, -4)
+  ]);
+  scene.add(new THREE.Line(gv, gridMat));
+  scene.add(new THREE.Line(gh, gridMat));
 }
 
-// Floating geometric rings
-const ringGeo = new THREE.RingGeometry(1.2, 1.25, 64);
-const ringMat = new THREE.MeshBasicMaterial({ color: 0xC9A96E, transparent: true, opacity: 0.06, side: THREE.DoubleSide });
-const ring1 = new THREE.Mesh(ringGeo, ringMat);
-ring1.position.set(3, 1, -2);
-scene.add(ring1);
+// ── Floating rings — elegant, slowly rotating
+const makeRing = (r1: number, r2: number, color: number, opacity: number, x: number, y: number, z: number) => {
+  const m = new THREE.Mesh(
+    new THREE.RingGeometry(r1, r2, 80),
+    new THREE.MeshBasicMaterial({ color, transparent: true, opacity, side: THREE.DoubleSide })
+  );
+  m.position.set(x, y, z);
+  scene.add(m);
+  return m;
+};
+const ring1 = makeRing(1.4, 1.46, 0xC9A96E, 0.12, 3.5,  1.2, -1.5);
+const ring2 = makeRing(0.7, 0.74, 0xC4714A, 0.10, -4.5, -1.8, -2.0);
+const ring3 = makeRing(0.4, 0.43, 0xC9A96E, 0.08, 1.5, -2.5, -0.5);
 
-const ring2 = new THREE.Mesh(new THREE.RingGeometry(0.6, 0.63, 64), new THREE.MeshBasicMaterial({ color: 0xC4714A, transparent: true, opacity: 0.07, side: THREE.DoubleSide }));
-ring2.position.set(-4, -1.5, -1);
-scene.add(ring2);
+// ── Subtle nebula glow blob (additive sphere)
+const glowGeo = new THREE.SphereGeometry(2.5, 32, 32);
+const glowMat = new THREE.MeshBasicMaterial({ color: 0xC9A96E, transparent: true, opacity: 0.018, side: THREE.BackSide });
+const glow1 = new THREE.Mesh(glowGeo, glowMat);
+glow1.position.set(3, 0, -3);
+scene.add(glow1);
 
 let mouseX = 0, mouseY = 0;
 window.addEventListener('mousemove', (e) => {
@@ -924,24 +1117,39 @@ window.addEventListener('mousemove', (e) => {
 }, { passive: true });
 
 let raf: number;
+let heroActive = true;
+
 function animateHero() {
+  if (!heroActive) return;
   raf = requestAnimationFrame(animateHero);
-  const t = Date.now() * 0.0003;
-  camera.position.x += (mouseX * 0.4 - camera.position.x) * 0.04;
-  camera.position.y += (-mouseY * 0.2 - camera.position.y) * 0.04;
+  const t = Date.now() * 0.00025;
+
+  camera.position.x += (mouseX * 0.35 - camera.position.x) * 0.035;
+  camera.position.y += (-mouseY * 0.18 - camera.position.y) * 0.035;
   camera.lookAt(scene.position);
-  ring1.rotation.z = t * 0.3;
-  ring2.rotation.z = -t * 0.5;
-  ring1.rotation.x = t * 0.1;
+
+  ring1.rotation.z = t * 0.25;
+  ring1.rotation.x = t * 0.08;
+  ring2.rotation.z = -t * 0.4;
+  ring2.rotation.y = t * 0.12;
+  ring3.rotation.z = t * 0.6;
+
+  // Slowly drift particles
+  const positions = (geo.attributes.position as THREE.BufferAttribute).array as Float32Array;
+  for (let i = 0; i < COUNT; i++) {
+    positions[i*3+1] += 0.0003;
+    if (positions[i*3+1] > 5) positions[i*3+1] = -5;
+  }
+  geo.attributes.position.needsUpdate = true;
+
   renderer.render(scene, camera);
 }
 animateHero();
 
-// Pause when hero not visible
 ScrollTrigger.create({
   trigger: '#hero', start: 'top top', end: 'bottom top',
-  onLeave: () => cancelAnimationFrame(raf),
-  onEnterBack: () => animateHero(),
+  onLeave:      () => { heroActive = false; cancelAnimationFrame(raf); },
+  onEnterBack:  () => { heroActive = true; animateHero(); },
 });
 
 window.addEventListener('resize', () => {
@@ -950,171 +1158,113 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }, { passive: true });
 
-// ── GSAP REVEAL ANIMATIONS ───────────────────
+// ── GSAP REVEALS — use data-delay attribute ───
 gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
+  const delay = parseFloat(el.dataset.delay || '0');
   gsap.fromTo(el,
-    { opacity: 0, y: 36 },
-    { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-      delay: parseFloat(el.style.transitionDelay || '0'),
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true } }
-  );
-});
-gsap.utils.toArray<HTMLElement>('.reveal-left').forEach((el) => {
-  gsap.fromTo(el,
-    { opacity: 0, x: -36 },
-    { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true } }
-  );
-});
-gsap.utils.toArray<HTMLElement>('.reveal-right').forEach((el) => {
-  gsap.fromTo(el,
-    { opacity: 0, x: 36 },
-    { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true } }
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', delay,
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    }
   );
 });
 
-// Service cards stagger
-gsap.utils.toArray<HTMLElement>('.service-card').forEach((card, i) => {
-  gsap.fromTo(card,
-    { opacity: 0, y: 40 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: i * 0.06,
-      scrollTrigger: { trigger: card, start: 'top 90%', once: true } }
-  );
-});
-
-// Work cards
-gsap.utils.toArray<HTMLElement>('.work-card').forEach((card, i) => {
-  gsap.fromTo(card,
-    { opacity: 0, y: 32 },
-    { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', delay: i * 0.1,
-      scrollTrigger: { trigger: card, start: 'top 88%', once: true } }
-  );
-});
-
-// ── COUNTER ANIMATION ────────────────────────
+// ── COUNTERS ────────────────────────────────
 document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => {
   const target = parseInt(el.dataset.counter!, 10);
   const suffix = el.dataset.suffix || '';
   ScrollTrigger.create({
     trigger: el, start: 'top 85%', once: true,
     onEnter: () => {
-      gsap.fromTo({ val: 0 }, { val: target, duration: 2, ease: 'power2.out',
-        onUpdate() { el.textContent = Math.round((this as any).targets()[0].val) + suffix; }
+      const obj = { val: 0 };
+      gsap.to(obj, { val: target, duration: 2, ease: 'power2.out',
+        onUpdate() { el.textContent = Math.round(obj.val) + suffix; }
       });
     }
   });
 });
 
-// ── CHART.JS ─────────────────────────────────
-function initCharts() {
-  // Donut — tech split
-  const ctxTech = (document.getElementById('chart-tech') as HTMLCanvasElement).getContext('2d')!;
-  new Chart(ctxTech, {
-    type: 'doughnut',
-    data: {
-      labels: ['Mobile Apps', 'Backend APIs', 'Web Platforms', 'AI & Automation'],
-      datasets: [{
-        data: [30, 25, 25, 20],
-        backgroundColor: ['#C9A96E', '#C4714A', '#8C7B6B', '#4A6741'],
-        borderColor: '#2A2320',
-        borderWidth: 3,
-        hoverOffset: 6,
-      }]
-    },
-    options: {
-      cutout: '70%',
-      plugins: { legend: { display: false }, tooltip: {
-        backgroundColor: '#2A2320',
-        titleColor: '#F5EFE4',
-        bodyColor: '#8C7B6B',
-        borderColor: 'rgba(201,169,110,0.2)',
-        borderWidth: 1,
-      }},
-      animation: { animateRotate: true, duration: 1400, easing: 'easeInOutQuart' },
-    }
-  });
-
-  // Bar — delivery speed
-  const ctxSpeed = (document.getElementById('chart-speed') as HTMLCanvasElement).getContext('2d')!;
-  new Chart(ctxSpeed, {
-    type: 'bar',
-    data: {
-      labels: ['Static Site', 'Booking Platform', 'Mobile App', 'SaaS'],
-      datasets: [
-        {
-          label: 'Quantaverse',
-          data: [12, 15, 20, 25],
-          backgroundColor: 'rgba(201,169,110,0.7)',
-          borderColor: '#C9A96E',
-          borderWidth: 1,
-          borderRadius: 2,
-        },
-        {
-          label: 'Industry Avg',
-          data: [30, 60, 90, 120],
-          backgroundColor: 'rgba(140,123,107,0.2)',
-          borderColor: 'rgba(140,123,107,0.4)',
-          borderWidth: 1,
-          borderRadius: 2,
-        }
-      ]
-    },
-    options: {
-      plugins: {
-        legend: {
-          labels: { color: 'rgba(245,239,228,0.4)', font: { family: 'DM Sans', size: 11 }, boxWidth: 12 }
-        },
-        tooltip: {
-          backgroundColor: '#2A2320',
-          titleColor: '#F5EFE4',
-          bodyColor: '#8C7B6B',
-          borderColor: 'rgba(201,169,110,0.2)',
-          borderWidth: 1,
-          callbacks: { label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y} days` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: 'rgba(245,239,228,0.3)', font: { family: 'DM Sans', size: 10 } }, grid: { color: 'rgba(245,239,228,0.04)' } },
-        y: { ticks: { color: 'rgba(245,239,228,0.3)', font: { family: 'DM Sans', size: 10 }, callback: (v) => v + 'd' }, grid: { color: 'rgba(245,239,228,0.04)' } }
-      },
-      animation: { duration: 1400, easing: 'easeInOutQuart' },
-    }
-  });
-}
-
+// ── CHARTS ─────────────────────────────────
 ScrollTrigger.create({
   trigger: '#stats', start: 'top 70%', once: true,
-  onEnter: () => {
-    initCharts();
+  onEnter() {
+    // Donut
+    const ctxD = (document.getElementById('chart-tech') as HTMLCanvasElement).getContext('2d')!;
+    new Chart(ctxD, {
+      type: 'doughnut',
+      data: {
+        labels: ['Mobile Apps','Backend APIs','Web Platforms','AI & Automation'],
+        datasets: [{
+          data: [30,25,25,20],
+          backgroundColor: ['#C9A96E','#C4714A','#8C7B6B','#4A6741'],
+          borderColor: '#2A2320', borderWidth: 3, hoverOffset: 8,
+        }]
+      },
+      options: {
+        cutout: '72%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { backgroundColor: '#2A2320', titleColor: '#F5EFE4', bodyColor: '#8C7B6B', borderColor: 'rgba(201,169,110,0.2)', borderWidth: 1 }
+        },
+        animation: { animateRotate: true, duration: 1400, easing: 'easeInOutQuart' }
+      }
+    });
+
+    // Bar
+    const ctxB = (document.getElementById('chart-speed') as HTMLCanvasElement).getContext('2d')!;
+    new Chart(ctxB, {
+      type: 'bar',
+      data: {
+        labels: ['Static Site','Booking','Mobile App','SaaS'],
+        datasets: [
+          { label: 'Quantaverse', data: [12,15,20,25], backgroundColor: 'rgba(201,169,110,0.75)', borderColor: '#C9A96E', borderWidth: 1, borderRadius: 2 },
+          { label: 'Industry Avg', data: [30,60,90,120], backgroundColor: 'rgba(140,123,107,0.18)', borderColor: 'rgba(140,123,107,0.35)', borderWidth: 1, borderRadius: 2 }
+        ]
+      },
+      options: {
+        plugins: {
+          legend: { labels: { color: 'rgba(245,239,228,0.38)', font: { family: 'DM Sans', size: 11 }, boxWidth: 12 } },
+          tooltip: { backgroundColor: '#2A2320', titleColor: '#F5EFE4', bodyColor: '#8C7B6B', borderColor: 'rgba(201,169,110,0.2)', borderWidth: 1,
+            callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y} days` } }
+        },
+        scales: {
+          x: { ticks: { color: 'rgba(245,239,228,0.3)', font: { family: 'DM Sans', size: 10 } }, grid: { color: 'rgba(245,239,228,0.04)' } },
+          y: { ticks: { color: 'rgba(245,239,228,0.3)', font: { family: 'DM Sans', size: 10 }, callback: v => v + 'd' }, grid: { color: 'rgba(245,239,228,0.04)' } }
+        },
+        animation: { duration: 1400, easing: 'easeInOutQuart' }
+      }
+    });
+
     // Capability bars
-    document.querySelectorAll<HTMLElement>('.capability-bar').forEach((bar, i) => {
-      const pct = parseInt(bar.closest('.capability-item')!.dataset.pct!, 10);
-      setTimeout(() => { bar.style.width = pct + '%'; }, i * 80);
+    document.querySelectorAll<HTMLElement>('.cap-fill').forEach((bar, i) => {
+      const w = bar.dataset.w!;
+      setTimeout(() => { bar.style.width = w + '%'; }, i * 100);
     });
-    // Radar polygon dots
-    document.querySelectorAll('#radar-chart circle').forEach(c => {
-      (c as SVGCircleElement).style.opacity = '1';
-      (c as SVGCircleElement).style.transition = 'opacity 0.5s ease 0.8s';
-    });
+
+    // Radar
     const poly = document.getElementById('radar-polygon')!;
+    poly.style.transition = 'opacity 1s ease 0.4s';
     poly.style.opacity = '1';
+    document.querySelectorAll<SVGCircleElement>('.radar-dot').forEach((d, i) => {
+      d.style.transition = `opacity 0.4s ease ${0.6 + i * 0.1}s`;
+      d.style.opacity = '1';
+    });
   }
 });
 
-// ── CONTACT FORM ─────────────────────────────
+// ── CONTACT FORM ────────────────────────────
 const form = document.getElementById('contact-form') as HTMLFormElement;
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const data = new FormData(form);
   try {
-    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data as any).toString() });
+    await fetch('/', { method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form) as any).toString()
+    });
     form.reset();
-    document.getElementById('form-success')!.classList.remove('hidden');
-  } catch {
-    // silent — Netlify handles it
-  }
+    const s = document.getElementById('form-success')!;
+    s.style.display = 'block';
+  } catch { /* silent */ }
 });
 </script>
 
