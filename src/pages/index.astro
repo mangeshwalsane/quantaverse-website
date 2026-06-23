@@ -393,24 +393,14 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <div class="work-card work-card-sm reveal-up" style="--wc:#1A4A47;--d:0.1s">
+      <div class="work-card work-card-sm reveal-up" style="--wc:#1A2A4A;--d:0.1s">
         <div class="wcs-top">
           <span class="badge-client">Client</span>
-          <span class="badge-delivery"><span class="pulse-dot" style="background:#5EC87A"></span>In Delivery</span>
+          <span class="badge-delivery"><span class="pulse-dot" style="background:#6B8AE8"></span>In Build</span>
         </div>
-        <h3 class="wcs-title">KAARA Studio</h3>
-        <p class="wcs-desc">Full booking platform for a luxury co-working and yoga studio in Surat. Razorpay payments, Google Calendar sync, recurring plans, automated confirmations.</p>
-        <div class="wcs-tags"><span>Astro</span><span>Razorpay</span><span>Google Cal</span></div>
-      </div>
-
-      <div class="work-card work-card-sm reveal-up" style="--wc:#3D1F1A;--d:0.2s">
-        <div class="wcs-top">
-          <span class="badge-client">Client</span>
-          <span class="badge-delivery"><span class="pulse-dot" style="background:#5EC87A"></span>In Delivery</span>
-        </div>
-        <h3 class="wcs-title">City Smile Dental</h3>
-        <p class="wcs-desc">Mobile-first digital presence for a 14-year-old dental clinic in Vadodara. WhatsApp booking, Maps integration, before/after gallery — zero platform fees.</p>
-        <div class="wcs-tags"><span>Static</span><span>WhatsApp</span><span>12 Days</span></div>
+        <h3 class="wcs-title">CorpRide</h3>
+        <p class="wcs-desc">Corporate fleet & employee transport platform — smart route planning, live driver tracking, automated billing, and zero manual dispatch for enterprises.</p>
+        <div class="wcs-tags"><span>Flutter</span><span>Spring Boot</span><span>Google Maps</span><span>Razorpay</span></div>
       </div>
     </div>
   </div>
@@ -994,139 +984,29 @@ mobClose.addEventListener('click', () => mobOverlay.classList.remove('open'));
 document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => mobOverlay.classList.remove('open')));
 
 // ══════════════════════════════════════════
-// 8. THREE.JS HERO CANVAS — network graph + floating shapes
+// 8. HERO CANVAS — static radial glows only
 // ══════════════════════════════════════════
-const canvas   = document.getElementById('hero-canvas') as HTMLCanvasElement;
-const scene    = new THREE.Scene();
-const camera   = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-camera.position.set(0, 0, 8);
-
-// Lighting for glossy shapes
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
-scene.add(ambient);
-const keyLight = new THREE.DirectionalLight(0xE2C98A, 1.2);
-keyLight.position.set(5, 8, 5);
-scene.add(keyLight);
-const fillLight = new THREE.PointLight(0xC4714A, 0.8, 30);
-fillLight.position.set(-6, -3, 4);
-scene.add(fillLight);
-const rimLight = new THREE.PointLight(0x8B7355, 0.5, 20);
-rimLight.position.set(0, -8, 2);
-scene.add(rimLight);
-
-// Floating 3D shapes (glossy, pastel)
-const shapeMat = (color: number) => new THREE.MeshStandardMaterial({ color, roughness: 0.18, metalness: 0.35, transparent: true, opacity: 0.55 });
-interface Shape3D { mesh: THREE.Mesh; rx: number; ry: number; rz: number; floatAmp: number; floatSpd: number; floatOff: number; }
-const shapes3D: Shape3D[] = [
-  { mesh: new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.35, 20, 60),      shapeMat(0xC9A96E)), rx:0.002, ry:0.003, rz:0.001, floatAmp:0.25, floatSpd:0.5,  floatOff:0 },
-  { mesh: new THREE.Mesh(new THREE.IcosahedronGeometry(0.9, 1),            shapeMat(0xC4714A)), rx:0.004, ry:0.002, rz:0.003, floatAmp:0.3,  floatSpd:0.7,  floatOff:1.2 },
-  { mesh: new THREE.Mesh(new THREE.TorusKnotGeometry(0.6, 0.18, 80, 12),  shapeMat(0x8B6B4A)), rx:0.003, ry:0.005, rz:0.001, floatAmp:0.2,  floatSpd:0.6,  floatOff:2.4 },
-  { mesh: new THREE.Mesh(new THREE.OctahedronGeometry(0.7),                shapeMat(0xD4A84B)), rx:0.005, ry:0.003, rz:0.004, floatAmp:0.35, floatSpd:0.8,  floatOff:0.8 },
-  { mesh: new THREE.Mesh(new THREE.SphereGeometry(0.5, 24, 24),           shapeMat(0xC9A96E)), rx:0.002, ry:0.006, rz:0.002, floatAmp:0.28, floatSpd:0.55, floatOff:3.0 },
-];
-const shapePositions: [number,number,number][] = [[-5,2,-4],[5,-1.5,-5],[-3,-2.5,-6],[4,3,-5],[2,-3,-4]];
-shapes3D.forEach((s, i) => {
-  const [x,y,z] = shapePositions[i];
-  s.mesh.position.set(x, y, z);
-  scene.add(s.mesh);
-});
-
-// Network nodes
-const NODES = [
-  { x:0.0,  y:0.5,  z:-2,   r:0.06, primary:true  },
-  { x:-5.0, y:2.0,  z:-3.5, r:0.04, primary:false },
-  { x:5.2,  y:1.8,  z:-3.0, r:0.04, primary:false },
-  { x:-5.5, y:-2.0, z:-3.5, r:0.035,primary:false },
-  { x:5.0,  y:-2.2, z:-3.5, r:0.035,primary:false },
-  { x:0.5,  y:-3.5, z:-3.0, r:0.04, primary:false },
-  { x:-2.5, y:3.5,  z:-4.0, r:0.03, primary:false },
-  { x:2.8,  y:3.6,  z:-4.0, r:0.03, primary:false },
-  { x:-3.0, y:-0.5, z:-2.5, r:0.025,primary:false },
-  { x:3.2,  y:-0.6, z:-2.5, r:0.025,primary:false },
-];
-const EDGES = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,3],[2,4],[6,7],[1,6],[2,7],[3,8],[4,9],[5,8],[5,9]];
-
-NODES.forEach(nd => {
-  const m = new THREE.Mesh(new THREE.SphereGeometry(nd.r,16,16), new THREE.MeshBasicMaterial({ color:0xC9A96E, transparent:true, opacity:nd.primary?0.5:0.22 }));
-  m.position.set(nd.x, nd.y, nd.z);
-  scene.add(m);
-  const g = new THREE.Mesh(new THREE.RingGeometry(nd.r*1.8, nd.r*3, 32), new THREE.MeshBasicMaterial({ color:0xC9A96E, transparent:true, opacity:nd.primary?0.06:0.025, side:THREE.DoubleSide }));
-  g.position.copy(m.position);
-  scene.add(g);
-});
-EDGES.forEach(([a,b]) => {
-  const geo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(NODES[a].x,NODES[a].y,NODES[a].z), new THREE.Vector3(NODES[b].x,NODES[b].y,NODES[b].z)]);
-  scene.add(new THREE.Line(geo, new THREE.LineBasicMaterial({ color:0xC9A96E, transparent:true, opacity:0.05 })));
-});
-
-interface Pulse { mesh: THREE.Mesh; edge:number; t:number; speed:number; }
-const pulses: Pulse[] = [];
-const pMat = new THREE.MeshBasicMaterial({ color:0xE2C98A, transparent:true, opacity:0.7 });
-function spawnPulse() {
-  const edge = Math.floor(Math.random() * EDGES.length);
-  const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.03,8,8), pMat.clone());
-  scene.add(mesh);
-  pulses.push({ mesh, edge, t:0, speed:0.003+Math.random()*0.005 });
-}
-for (let i = 0; i < 8; i++) setTimeout(() => spawnPulse(), i * 500);
-
-// Bg particles
-const bgPos = new Float32Array(400*3);
-for (let i=0;i<400;i++) { bgPos[i*3]=(Math.random()-.5)*24; bgPos[i*3+1]=(Math.random()-.5)*16; bgPos[i*3+2]=-7-Math.random()*4; }
-const bgGeo = new THREE.BufferGeometry();
-bgGeo.setAttribute('position', new THREE.BufferAttribute(bgPos,3));
-scene.add(new THREE.Points(bgGeo, new THREE.PointsMaterial({ color:0xC9A96E, size:0.018, transparent:true, opacity:0.2 })));
-
-let mx=0, my=0;
-window.addEventListener('mousemove', e => { mx=(e.clientX/window.innerWidth-.5)*2; my=(e.clientY/window.innerHeight-.5)*2; }, { passive:true });
-
-let heroActive = true, raf = 0;
-function animateHero() {
-  if (!heroActive) return;
-  raf = requestAnimationFrame(animateHero);
-  const t = Date.now() * 0.001;
-
-  camera.position.x += (mx*0.5 - camera.position.x) * 0.03;
-  camera.position.y += (-my*0.25 - camera.position.y) * 0.03;
-  camera.lookAt(scene.position);
-
-  // Animate floating shapes
-  shapes3D.forEach(s => {
-    s.mesh.rotation.x += s.rx;
-    s.mesh.rotation.y += s.ry;
-    s.mesh.rotation.z += s.rz;
-    s.mesh.position.y = shapePositions[shapes3D.indexOf(s)][1] + Math.sin(t * s.floatSpd + s.floatOff) * s.floatAmp;
-  });
-
-  // Pulses
-  for (let i=pulses.length-1;i>=0;i--) {
-    const p = pulses[i];
-    p.t += p.speed;
-    if (p.t>=1) { scene.remove(p.mesh); pulses.splice(i,1); spawnPulse(); continue; }
-    const [a,b] = EDGES[p.edge];
-    const aPos = new THREE.Vector3(NODES[a].x,NODES[a].y,NODES[a].z);
-    const bPos = new THREE.Vector3(NODES[b].x,NODES[b].y,NODES[b].z);
-    p.mesh.position.lerpVectors(aPos, bPos, p.t);
-    (p.mesh.material as THREE.MeshBasicMaterial).opacity = Math.sin(p.t*Math.PI)*0.65;
+(function(){
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+  function draw() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    const g1 = ctx.createRadialGradient(W*0.12, H*0.88, 0, W*0.12, H*0.88, W*0.55);
+    g1.addColorStop(0, 'rgba(201,169,110,0.07)');
+    g1.addColorStop(1, 'transparent');
+    ctx.fillStyle = g1; ctx.fillRect(0,0,W,H);
+    const g2 = ctx.createRadialGradient(W*0.85, H*0.2, 0, W*0.85, H*0.2, W*0.4);
+    g2.addColorStop(0, 'rgba(196,113,74,0.04)');
+    g2.addColorStop(1, 'transparent');
+    ctx.fillStyle = g2; ctx.fillRect(0,0,W,H);
   }
-  renderer.render(scene, camera);
-}
-animateHero();
-
-ScrollTrigger.create({
-  trigger:'#hero', start:'top top', end:'bottom top',
-  onLeave:     () => { heroActive=false; cancelAnimationFrame(raf); },
-  onEnterBack: () => { heroActive=true; animateHero(); },
-});
-
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth/window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}, { passive:true });
+  draw();
+  window.addEventListener('resize', draw, { passive:true });
+})();
 
 // ══════════════════════════════════════════
 // 9. WATERMARK PARALLAX
