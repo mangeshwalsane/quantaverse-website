@@ -13,6 +13,7 @@
     "pipeline": "node tools/server.cjs"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.3.1",
     "@types/three": "^0.184.1",
     "astro": "^6.4.7",
