@@ -58,10 +58,11 @@ import '../styles/global.css';
 
 <div id="mob-overlay" class="mob-overlay">
   <button id="mob-close" aria-label="Close">✕</button>
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#work"     class="mob-link">Work</a>
-  <a href="#about"    class="mob-link">About</a>
-  <a href="#contact"  class="mob-link">Contact</a>
+  <a href="#services"  class="mob-link">Services</a>
+  <a href="#founders"  class="mob-link">For Founders</a>
+  <a href="#work"      class="mob-link">Work</a>
+  <a href="#about"     class="mob-link">About</a>
+  <a href="#contact"   class="mob-link">Contact</a>
 </div>
 
 
@@ -383,6 +384,102 @@ import '../styles/global.css';
           </div>
         </div>
         <div class="svc-deco svc-deco-circle" style="background:rgba(232,200,74,0.08)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ FOR FOUNDERS ══════════════ -->
+<section id="founders" class="founders-section">
+  <div class="container">
+    <div class="founders-header reveal-up">
+      <p class="section-label">For Founders</p>
+      <h2 class="founders-h2">Two paths.<br/><em>One studio.</em></h2>
+      <p class="founders-sub">Whether you've never written a line of code or you ship daily — we handle what you don't.</p>
+    </div>
+
+    <div class="founders-grid">
+
+      <!-- Card 1: Non-technical -->
+      <div class="founders-card reveal-up" style="--fc-accent:#5ECFB8;--fc-bg:#0D2E2B">
+        <div class="fc-badge">Non-Technical Founders</div>
+        <div class="fc-icon-row">
+          <span class="fc-emoji">🧘</span>
+          <span class="fc-emoji">👗</span>
+          <span class="fc-emoji">🍽️</span>
+          <span class="fc-emoji">🏫</span>
+        </div>
+        <h3 class="fc-title">You have the idea.<br/>We build everything.</h3>
+        <p class="fc-desc">Yoga studio, fashion brand, clinic, school — if you know what your business does but not how to digitalise it, we take it from zero to live. Branding, platform, payments, hosting, App Store — done.</p>
+        <ul class="fc-list">
+          <li><span class="fc-check">✓</span>Brand identity &amp; UI design</li>
+          <li><span class="fc-check">✓</span>Mobile app or booking platform</li>
+          <li><span class="fc-check">✓</span>Payments (Razorpay) wired in</li>
+          <li><span class="fc-check">✓</span>Hosting, domain, SSL configured</li>
+          <li><span class="fc-check">✓</span>App Store &amp; Play Store submission</li>
+          <li><span class="fc-check">✓</span>You own 100% — no lock-in</li>
+        </ul>
+        <div class="fc-price">
+          <span class="fc-price-range">₹25,000 – ₹1,50,000</span>
+          <span class="fc-price-label">depending on scope</span>
+        </div>
+        <a href="#contact" class="fc-cta magnetic-btn">Start a Project →</a>
+      </div>
+
+      <!-- Card 2: Technical founders -->
+      <div class="founders-card reveal-up" style="--fc-accent:#C9A96E;--fc-bg:#2A1F0A;--d:0.1s">
+        <div class="fc-badge fc-badge-gold">Technical Founders</div>
+        <div class="fc-icon-row">
+          <span class="fc-emoji">👨‍💻</span>
+          <span class="fc-emoji">⚡</span>
+          <span class="fc-emoji">🚀</span>
+        </div>
+        <h3 class="fc-title">You write the code.<br/>We handle everything else.</h3>
+        <p class="fc-desc">You know Flutter, React, or Django — but Razorpay onboarding, Apple Developer accounts, GST, AWS IAM, and App Store review guidelines are black holes. We've been through all of it. We set it up right the first time.</p>
+
+        <div class="fc-gotcha reveal-up">
+          <span class="fc-gotcha-icon">⚠</span>
+          <p>"We set up your Apple Developer account under your company entity — not your personal Apple ID. The kind of mistake that takes 2 weeks to undo."</p>
+        </div>
+
+        <ul class="fc-list">
+          <li><span class="fc-check fc-check-gold">✓</span>Company / LLP registration guidance</li>
+          <li><span class="fc-check fc-check-gold">✓</span>Apple &amp; Google developer accounts</li>
+          <li><span class="fc-check fc-check-gold">✓</span>Razorpay live onboarding</li>
+          <li><span class="fc-check fc-check-gold">✓</span>AWS setup (IAM, S3, ECS/EBS)</li>
+          <li><span class="fc-check fc-check-gold">✓</span>Privacy policy, ToS, refund policy</li>
+          <li><span class="fc-check fc-check-gold">✓</span>App Store &amp; Play Store first submission</li>
+        </ul>
+        <div class="fc-price">
+          <span class="fc-price-range">₹8,000 – ₹25,000</span>
+          <span class="fc-price-label">launch ops package</span>
+        </div>
+        <a href="#contact" class="fc-cta fc-cta-gold magnetic-btn">Get Launch Ops →</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="founders-strip reveal-up">
+      <div class="fs-item">
+        <span class="fs-num">15</span>
+        <span class="fs-label">days avg. delivery</span>
+      </div>
+      <div class="fs-divider"></div>
+      <div class="fs-item">
+        <span class="fs-num">0</span>
+        <span class="fs-label">surprises — fixed price</span>
+      </div>
+      <div class="fs-divider"></div>
+      <div class="fs-item">
+        <span class="fs-num">100%</span>
+        <span class="fs-label">ownership transferred</span>
+      </div>
+      <div class="fs-divider"></div>
+      <div class="fs-item">
+        <span class="fs-num">India-first</span>
+        <span class="fs-label">Razorpay · MCA · App Store India</span>
       </div>
     </div>
   </div>
@@ -862,6 +959,7 @@ import '../styles/global.css';
             <option>AI Tools & Automation</option>
             <option>Business Website</option>
             <option>Custom Software</option>
+            <option>Launch Ops (for technical founders)</option>
             <option>Not sure — let's talk</option>
           </select>
           <textarea name="message" rows="4" placeholder="Tell us about your project — what it does, who it's for, and when you need it." class="cf-input" style="resize:none"></textarea>
@@ -1147,6 +1245,77 @@ import '../styles/global.css';
   .svc-deco-pill   { width:120px; height:280px; border-radius:100px; right:-2rem; bottom:-4rem; transform:rotate(-20deg); }
   .svc-deco-diamond{ width:160px; height:160px; transform:rotate(45deg); right:-4rem; bottom:-4rem; border-radius:16px; }
   .svc-deco-square { width:220px; height:220px; border-radius:28px; right:-3rem; bottom:-4rem; transform:rotate(12deg); }
+
+  /* ── FOUNDERS ── */
+  .founders-section { padding:7rem 0; background:var(--charcoal-2,#2A2320); }
+  .founders-header { text-align:center; margin-bottom:4rem; }
+  .founders-h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300; line-height:1.15; color:var(--cream); margin-bottom:1rem; }
+  .founders-h2 em { font-style:italic; color:var(--gold); }
+  .founders-sub { color:var(--stone-light,#C4B5A5); font-size:1.05rem; max-width:520px; margin:0 auto; }
+
+  .founders-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; margin-bottom:3rem; }
+  @media(min-width:900px) { .founders-grid { grid-template-columns:1fr 1fr; } }
+
+  .founders-card {
+    position:relative; background:var(--fc-bg,#111); border:1px solid rgba(255,255,255,0.07);
+    border-radius:20px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1.25rem;
+    transition:border-color .3s, transform .3s;
+    animation-delay:var(--d,0s);
+  }
+  .founders-card:hover { border-color:var(--fc-accent); transform:translateY(-4px); }
+
+  .fc-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(94,207,184,0.12); color:#5ECFB8;
+    border:1px solid rgba(94,207,184,0.25); border-radius:100px;
+    font-size:0.72rem; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+    padding:4px 14px; width:fit-content;
+  }
+  .fc-badge-gold { background:rgba(201,169,110,0.12); color:var(--gold); border-color:rgba(201,169,110,0.25); }
+
+  .fc-icon-row { display:flex; gap:10px; font-size:1.5rem; }
+
+  .fc-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:300; line-height:1.25; color:var(--cream); }
+
+  .fc-desc { color:rgba(245,239,228,0.6); font-size:0.95rem; line-height:1.7; }
+
+  .fc-gotcha {
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(201,169,110,0.07); border:1px solid rgba(201,169,110,0.2);
+    border-radius:10px; padding:1rem 1.1rem;
+  }
+  .fc-gotcha-icon { font-size:1rem; color:var(--gold); flex-shrink:0; margin-top:2px; }
+  .fc-gotcha p { font-size:0.85rem; color:rgba(245,239,228,0.7); line-height:1.6; font-style:italic; }
+
+  .fc-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .fc-list li { display:flex; align-items:center; gap:10px; font-size:0.92rem; color:rgba(245,239,228,0.75); }
+  .fc-check { color:#5ECFB8; font-weight:700; flex-shrink:0; }
+  .fc-check-gold { color:var(--gold); }
+
+  .fc-price { display:flex; flex-direction:column; gap:2px; margin-top:auto; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.07); }
+  .fc-price-range { font-size:1.3rem; font-weight:600; color:var(--cream); }
+  .fc-price-label { font-size:0.8rem; color:var(--stone,#8C7B6B); }
+
+  .fc-cta {
+    display:inline-flex; align-items:center; justify-content:center;
+    background:#5ECFB8; color:#0D2E2B; font-weight:600; font-size:0.9rem;
+    border-radius:10px; padding:0.75rem 1.5rem; text-decoration:none;
+    transition:background .2s, transform .2s;
+  }
+  .fc-cta:hover { background:#7ADFC8; transform:translateY(-2px); }
+  .fc-cta-gold { background:var(--gold); color:#2A1F0A; }
+  .fc-cta-gold:hover { background:var(--gold-light,#E2C98A); }
+
+  .founders-strip {
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+    gap:0; border:1px solid rgba(255,255,255,0.07); border-radius:16px;
+    background:rgba(255,255,255,0.02); overflow:hidden;
+  }
+  .fs-item { display:flex; flex-direction:column; align-items:center; gap:4px; padding:1.5rem 2rem; flex:1; min-width:140px; text-align:center; }
+  .fs-num { font-size:1.5rem; font-weight:700; color:var(--gold); }
+  .fs-label { font-size:0.78rem; color:var(--stone,#8C7B6B); letter-spacing:0.5px; }
+  .fs-divider { width:1px; height:48px; background:rgba(255,255,255,0.07); flex-shrink:0; }
+  @media(max-width:640px) { .fs-divider { display:none; } .fs-item { border-bottom:1px solid rgba(255,255,255,0.07); } }
 
   /* ── STATS ── */
   .stats-section { padding:7rem 0; background:var(--ink-3); }
@@ -1569,8 +1738,8 @@ import '../styles/global.css';
   .biz-ssl { font-size:8px; }
   .biz-chrome-actions { display:flex; align-items:center; }
   /* Page sections */
-  .biz-screen { position:relative; overflow:hidden; }
-  .biz-page { display:none; flex-direction:column; padding:0; }
+  .biz-screen { position:relative; overflow:hidden; height:220px; }
+  .biz-page { display:none; flex-direction:column; padding:0; position:absolute; inset:0; overflow:hidden; }
   .biz-page.biz-page-active { display:flex; animation:biz-fadein 0.4s ease; }
   @keyframes biz-fadein { from{opacity:0;transform:translateY(3px)} to{opacity:1;transform:translateY(0)} }
   /* Nav */
